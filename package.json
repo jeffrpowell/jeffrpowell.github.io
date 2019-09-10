@@ -1,0 +1,71 @@
+{
+  "name": "jeffrpowell",
+  "description": "Personal portfolio website for Jeff Powell",
+  "version": "1.0.0",
+  "author": "Jeff Powell",
+  "license": "MIT",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve --aot --ssl --host 0.0.0.0 --port 4290 --live-reload --public-host live-reload-jeffrpowell --disableHostCheck",
+    "start-prod": "node --max_old_space_size=8192 node_modules/@angular/cli/bin/ng serve --prod --ssl --host 0.0.0.0 --port 4290 --live-reload --public-host live-reload-jeffrpowell --disableHostCheck",
+    "build": "ng build --prod && cpx package.json ./dist/",
+    "dev-build": "ng build && cpx package.json ./dist/",
+    "lint": "ng lint",
+    "bundle-report": "ng build --prod --stats-json && webpack-bundle-analyzer dist/stats.json",
+    "watch": "ng lint && ng build --aot --watch --verbose",
+    "watch-prod": "ng lint && ng build --prod --watch --verbose",
+    "format:check": "prettier --config ./.prettierrc --check \"./src/{app,environments,assets}/**/*.{ts,js,json,css,scss}\"",
+    "format:fix": "prettier --config ./.prettierrc --write \"./src/{app,environments,assets}/**/*.{ts,js,json,css,scss}\""
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "./src/{app,environments,assets}/**/*.{ts,js,scss,css,json}": [
+      "prettier --config ./.prettierrc --write",
+      "git add"
+    ]
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "~8.2.0",
+    "@angular/common": "~8.2.0",
+    "@angular/compiler": "~8.2.0",
+    "@angular/core": "~8.2.0",
+    "@angular/forms": "~8.2.0",
+    "@angular/platform-browser": "~8.2.0",
+    "@angular/platform-browser-dynamic": "~8.2.0",
+    "@angular/router": "~8.2.0",
+    "@mdi/font": "~3.6",
+    "@ng-bootstrap/ng-bootstrap": "~5.1.0",
+    "@ng-select/ng-select": "~3.0.3",
+    "bignumber.js": "~9.0.0",
+    "bootstrap": "~4.3.1",
+    "lodash-es": "~4.17.15",
+    "moment": "~2.24.0",
+    "ngx-toastr": "~10.0.4",
+    "rxjs": "~6.4.0",
+    "ts-key-enum": "^2.0.0",
+    "tslib": "^1.10.0",
+    "zone.js": "~0.9.1"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.803.0",
+    "@angular/cli": "~8.3.3",
+    "@angular/compiler-cli": "~8.2.0",
+    "@types/lodash-es": "4.17.3",
+    "@types/node": "~12.6.8",
+    "codelyzer": "^5.0.1",
+    "cpx": "~1.5.0",
+    "husky": "^3.0.1",
+    "lint-staged": "^9.2.0",
+    "prettier": "1.18.2",
+    "ts-node": "~8.3.0",
+    "tslint": "~5.18.0",
+    "tslint-config-prettier": "1.18.0",
+    "typescript": "~3.5.3",
+    "webpack-bundle-analyzer": "~3.3.2"
+  }
+}

@@ -1,0 +1,10 @@
+package.json
+package-lock.json
+dist
+.vscode/*
+tslint.json
+tsconfig.json
+karma.conf.js
+Jenkinsfile
+angular.json
+.angular-cli.json
