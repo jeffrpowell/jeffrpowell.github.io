@@ -31,7 +31,9 @@
             ],
             "scripts": [],
             "stylePreprocessorOptions": {
-              "includePaths": ["./node_modules"]
+              "includePaths": [
+                "./node_modules"
+              ]
             }
           },
           "configurations": {
@@ -93,6 +95,14 @@
             "exclude": [
               "**/node_modules/**"
             ]
+          }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "branch": "master",
+            "cname": "jeffpowell.dev",
+            "message": "auto commit: deploying code changes"
           }
         }
       }
