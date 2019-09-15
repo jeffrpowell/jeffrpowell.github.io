@@ -1,7 +1,0 @@
-{
-  "/am-header/*": {
-    "target": "http://localhost",
-    "changeOrigin": true,
-    "secure": false
-  }
-}
