@@ -1,0 +1,50 @@
+@mixin brand-image {
+    border-radius: 100%;
+    /* https://stackoverflow.com/a/19193223 */
+    width: auto;
+    height: 100%
+}
+
+html {
+    font-size: 62.5%;
+    height: 100%;
+
+    body {
+        height: 100%;
+
+        .container-fluid {
+            position: relative;
+        }
+    }
+}
+
+#mobile-brand {
+    .navbar-brand {
+        height: 71px;
+        
+        img {
+            @include brand-image;
+        }
+    }
+}
+
+#sidebar {
+    #nav {
+        .navbar-brand {
+            height: 120px;
+            
+            img {
+                @include brand-image;
+            }
+        }
+    }
+
+    #footer {
+        // position: absolute;
+        // bottom: 0;
+    }
+}
+
+#mobile-nav {
+    font-size: 1.7rem;
+}
