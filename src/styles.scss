@@ -2,3 +2,7 @@
 @import "bootstrap/scss/bootstrap";
 $mdi-font-path: "@mdi/font/fonts";
 @import "@mdi/font/scss/materialdesignicons.scss";
+
+html, body {
+    height: 100vh;
+}
