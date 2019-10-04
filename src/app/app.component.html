@@ -1,60 +1,74 @@
 <div class="container-fluid">
-  <div class="row d-flex d-md-none">
-    <div class="col">
-      <ul id="mobile-brand" class="nav">
-        <a class="navbar-brand" routerLink="/whois">
-          <img src="/assets/jeffpowell.jpg">
-        </a>
-      </ul>
-    </div>
+  <div id="mobile-brand" class="d-md-none position-sticky">
+    <ul class="nav">
+      <a class="navbar-brand" routerLink="/">
+        <img src="/assets/jeffpowell.jpg">
+      </a>
+    </ul>
   </div>
   <div class="row">
-    <div id="sidebar" class="col-3 d-none d-md-flex">
-      <ul id="nav" class="nav flex-column ">
-        <a class="navbar-brand" routerLink="/whois">
+    <div id="sidebar" class="col-md-3 col-lg-2 d-none d-md-flex flex-column">
+      <div class="navbar-brand w-100 text-center">
+        <a routerLink="/">
           <img src="/assets/jeffpowell.jpg">
         </a>
-        <li class="nav-item" routerLinkActive="active">
+      </div>
+      <hr class="w-100">
+      <ul id="nav" class="nav flex-column text-center">
+        <li class="nav-item w-100" routerLinkActive="active">
           <a class="nav-link" routerLink="/whois" >About Me</a>
         </li>
-        <li class="nav-item" routerLinkActive="active">
+        <li class="nav-item w-100" routerLinkActive="active">
           <a class="nav-link" routerLink="/tech">Known Tech</a>
         </li>
-        <li class="nav-item" routerLinkActive="active">
+        <li class="nav-item w-100" routerLinkActive="active">
           <a class="nav-link" routerLink="/projects">Projects</a>
         </li>
-        <li class="nav-item" routerLinkActive="active">
+        <li class="nav-item w-100" routerLinkActive="active">
           <a class="nav-link" routerLink="/blog">Blog</a>
         </li>
-        <li id="footer" class="nav-item d-flex flex-column">
-          <div>
-            <i class="mdi mdi-linkedin"></i>
-            <i class="mdi mdi-github-circle"></i>
-            <i class="mdi mdi-discord"></i>
-            <i class="mdi mdi-email-outline"></i>
-          </div>
+      </ul>
+      <div id="footer" class="w-100">
+        <div class="social-icons d-flex justify-content-around">
+          <a target="_blank" href="https://www.linkedin.com/in/jeffpowell-dev/"><i class="mdi mdi-linkedin"></i></a>
+          <a target="_blank" href="https://github.com/jeffrpowell"><i class="mdi mdi-github-circle"></i></a>
+          <a target="_blank" href="mailto:jeffr.powell@outlook.com"><i class="mdi mdi-email-outline"></i></a>
+        </div>
+        <div class="d-flex flex-column align-items-center">
           <small class="font-weight-light">&copy; 2019 - Jeff Powell</small>
           <small class="font-weight-light">All Rights Reserved</small>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
     <div id="component-wrapper" class="col">
       <router-outlet></router-outlet>
     </div>
   </div>
 
-  <ul id="mobile-nav" class="nav nav-fill d-flex d-md-none fixed-bottom">
+  <ul id="mobile-nav" class="nav d-flex justify-content-around align-items-end d-md-none fixed-bottom text-uppercase">
     <li class="nav-item" routerLinkActive="active">
-      <a class="nav-link" routerLink="/whois" ><i class="mdi mdi-home-outline"></i></a>
+      <a class="nav-link d-flex flex-column align-items-center" routerLink="/whois">
+        <i class="mdi mdi-home-outline"></i>
+        <span class="mobile-nav-text">About</span>
+      </a>
     </li>
     <li class="nav-item" routerLinkActive="active">
-      <a class="nav-link" routerLink="/tech"><i class="mdi mdi-brain"></i></a>
+      <a class="nav-link d-flex flex-column align-items-center" routerLink="/tech">
+        <i class="mdi mdi-brain"></i>
+        <span class="mobile-nav-text">Tech</span>
+      </a>
     </li>
     <li class="nav-item" routerLinkActive="active">
-      <a class="nav-link" routerLink="/projects"><i class="mdi mdi-hammer"></i></a>
+      <a class="nav-link d-flex flex-column align-items-center" routerLink="/projects">
+        <i class="mdi mdi-hammer"></i>
+        <span class="mobile-nav-text">Projects</span>
+      </a>
     </li>
     <li class="nav-item" routerLinkActive="active">
-      <a class="nav-link" routerLink="/blog"><i class="mdi mdi-file-document-outline"></i></a>
+      <a class="nav-link d-flex flex-column align-items-center" routerLink="/blog">
+        <i class="mdi mdi-file-document-outline"></i>
+        <span class="mobile-nav-text">Blog</span>
+      </a>
     </li>
   </ul>
 </div>

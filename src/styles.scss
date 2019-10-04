@@ -5,4 +5,13 @@ $mdi-font-path: "@mdi/font/fonts";
 
 html, body {
     height: 100vh;
+    color: rgba(0,0,0,.86);
+}
+
+a {
+    color: #022d8a;
+
+    &:hover {
+        color: #002066;
+    }
 }

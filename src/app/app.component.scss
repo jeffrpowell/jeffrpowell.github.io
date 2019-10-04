@@ -1,5 +1,6 @@
 @mixin brand-image {
   border-radius: 100%;
+  border: 1px solid rgba(0,0,0,0.3);
   /* https://stackoverflow.com/a/19193223 */
   width: auto;
   height: 100%;
@@ -14,38 +15,115 @@
 }
 
 #mobile-brand {
+    .navbar-brand {
+        height: 71px;
+
+        img {
+        @include brand-image;
+        }
+    }
+}
+
+#sidebar {
+  background: linear-gradient(#709F4F, 10%, #a5c180, 40%, #a5c180, 75%, #567646, 98%, #567646);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+
   .navbar-brand {
-    height: 71px;
+    height: 120px;
 
     img {
       @include brand-image;
     }
   }
-}
 
-#sidebar {
-  border-right: 1px solid gray;
+  hr {
+      border-top-color: rgba(0,0,0,0.3);
+  }
+
   #nav {
     width: 100%;
-    .navbar-brand {
-      height: 120px;
+    
+    .nav-item {
+        &.active {
+            border-right: 2px solid #385028;
 
-      img {
-        @include brand-image;
-      }
+            a {
+                color: rgba(0,0,0,.90);
+            }
+        }
+        
+        a {
+            color: rgba(0,0,0,.60);
+    
+            &:hover {
+                color: rgba(0,0,0,.90);
+            }
+        }
     }
   }
 
   #footer {
     position: absolute;
     bottom: 0;
-    border-top: 1px solid gray;
+    border-top: 1px solid rgba(0,0,0,0.3);
+    margin-left: -15px;
+
+    .social-icons {
+        font-size: 1.7rem;
+
+        a {
+            color: rgba(0,0,0,.60);
+    
+            &:hover {
+                color: rgba(0,0,0,.90);
+            }
+        }
+    }
+
     small {
-      white-space: pre;
+      display: block;
     }
   }
 }
 
+#component-wrapper {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
 #mobile-nav {
-  font-size: 1.7rem;
+  background: linear-gradient(to right, #709F4F, 10%, #a5c180, 40%, #a5c180, 75%, #709F4F, 98%, #709F4F);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  .nav-item {
+    &.active {
+      border-top: 3px solid #385028;
+  
+      a {
+          color: rgba(0,0,0,.90);
+      }
+    }
+  
+    a {
+      color: rgba(0,0,0,.60);
+
+      i {
+          font-size: 1.3rem;
+          margin-bottom: -8px;
+      }
+
+      .mobile-nav-text {
+          font-size: 0.8rem;
+      }
+
+      &.nav-link {
+          padding-top: 0.25rem;
+          padding-bottom: 0.25rem;
+      }
+  
+      &:hover {
+          color: rgba(0,0,0,.90);
+      }
+    }
+  }
 }
