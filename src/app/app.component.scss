@@ -29,7 +29,7 @@
 #sidebar {
   background: linear-gradient(#709F4F, 10%, #a5c180, 40%, #a5c180, 75%, #567646, 98%, #567646);
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-
+  padding: 12px 0;
 
   .navbar-brand {
     height: 192px;
@@ -67,12 +67,12 @@
 
   #footer {
     position: absolute;
-    bottom: 0;
+    bottom: 12px;
     border-top: 1px solid rgba(0,0,0,0.3);
-    margin-left: -15px;
 
     .social-icons {
         font-size: 1.7rem;
+        margin-bottom: 6px;
 
         a {
             color: rgba(0,0,0,.60);
