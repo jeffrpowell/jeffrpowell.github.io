@@ -1,3 +1,5 @@
+@import "../variables";
+
 @mixin brand-image {
   border-radius: 100%;
   border: 1px solid rgba(0,0,0,0.3);
@@ -7,21 +9,21 @@
 }
 
 .container-fluid {
-  height: 100%;
-
   > .row {
     height: 100%;
   }
 }
 
 #mobile-brand {
-    .navbar-brand {
-        height: 71px;
+  padding: $mobile-header-padding-vertical $mobile-header-padding-horizontal;
 
-        img {
+  .navbar-brand {
+      height: $mobile-header-content-height;
+
+      img {
         @include brand-image;
-        }
-    }
+      }
+  }
 }
 
 #sidebar {

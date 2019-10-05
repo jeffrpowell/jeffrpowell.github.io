@@ -1,11 +1,11 @@
-<div class="container-fluid">
-  <div id="mobile-brand" class="d-md-none position-sticky">
-    <ul class="nav">
-      <a class="navbar-brand" routerLink="/">
-        <img src="/assets/jeffpowell.jpg">
-      </a>
-    </ul>
-  </div>
+<div id="mobile-brand" class="d-md-none fixed-top">
+  <ul class="nav">
+    <a class="navbar-brand" routerLink="/">
+      <img src="/assets/jeffpowell.jpg">
+    </a>
+  </ul>
+</div>
+<div class="container-fluid h-xs-92 h-md-100">
   <div class="row">
     <div id="sidebar" class="col-md-3 col-lg-2 d-none d-md-flex flex-column">
       <div class="navbar-brand w-100 text-center">
@@ -45,30 +45,30 @@
     </div>
   </div>
 
-  <ul id="mobile-nav" class="nav d-flex justify-content-around align-items-end d-md-none fixed-bottom text-uppercase">
-    <li class="nav-item" routerLinkActive="active">
-      <a class="nav-link d-flex flex-column align-items-center" routerLink="/whois">
-        <i class="mdi mdi-home-outline"></i>
-        <span class="mobile-nav-text">About</span>
-      </a>
-    </li>
-    <li class="nav-item" routerLinkActive="active">
-      <a class="nav-link d-flex flex-column align-items-center" routerLink="/tech">
-        <i class="mdi mdi-diploma-outline"></i>
-        <span class="mobile-nav-text">Tech</span>
-      </a>
-    </li>
-    <li class="nav-item" routerLinkActive="active">
-      <a class="nav-link d-flex flex-column align-items-center" routerLink="/projects">
-        <i class="mdi mdi-hammer"></i>
-        <span class="mobile-nav-text">Projects</span>
-      </a>
-    </li>
-    <li class="nav-item" routerLinkActive="active">
-      <a class="nav-link d-flex flex-column align-items-center" routerLink="/blog">
-        <i class="mdi mdi-file-document-outline"></i>
-        <span class="mobile-nav-text">Blog</span>
-      </a>
-    </li>
-  </ul>
 </div>
+<ul id="mobile-nav" class="nav d-flex justify-content-around align-items-end d-md-none fixed-bottom text-uppercase">
+  <li class="nav-item" routerLinkActive="active">
+    <a class="nav-link d-flex flex-column align-items-center" routerLink="/whois">
+      <i class="mdi mdi-home-outline"></i>
+      <span class="mobile-nav-text">About</span>
+    </a>
+  </li>
+  <li class="nav-item" routerLinkActive="active">
+    <a class="nav-link d-flex flex-column align-items-center" routerLink="/tech">
+      <i class="mdi mdi-account-star-outline"></i>
+      <span class="mobile-nav-text">Tech</span>
+    </a>
+  </li>
+  <li class="nav-item" routerLinkActive="active">
+    <a class="nav-link d-flex flex-column align-items-center" routerLink="/projects">
+      <i class="mdi mdi-hammer"></i>
+      <span class="mobile-nav-text">Projects</span>
+    </a>
+  </li>
+  <li class="nav-item" routerLinkActive="active">
+    <a class="nav-link d-flex flex-column align-items-center" routerLink="/blog">
+      <i class="mdi mdi-file-document-outline"></i>
+      <span class="mobile-nav-text">Blog</span>
+    </a>
+  </li>
+</ul>
