@@ -11,22 +11,16 @@
 
 #mobile-brand {
   @include box-shadow-2;
-  height: $mobile-header-content-height;
-  padding: $mobile-header-padding-vertical $mobile-header-padding-horizontal;
+  height: $mobile-header-height;
 
   .navbar-brand {
-      height: $mobile-header-content-height;
+      height: $mobile-header-height;
       position: absolute;
       left: 10px;
 
       img {
         @include brand-image;
       }
-  }
-
-  .mobile-title {
-    font-size: 1.6rem;
-    font-weight: lighter;
   }
 }
 
@@ -99,11 +93,14 @@
 }
 
 #mobile-nav {
+  @include box-shadow-4;
   background: linear-gradient(to right, #709F4F, 10%, #a5c180, 40%, #a5c180, 75%, #709F4F, 98%, #709F4F);
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  height: $mobile-nav-height;
+  padding-bottom: $mobile-nav-active-height;
+
   .nav-item {
     &.active {
-      border-top: 3px solid #385028;
+      border-top: $mobile-nav-active-height solid #385028;
   
       a {
           color: rgba(0,0,0,.90);
@@ -114,17 +111,17 @@
       color: rgba(0,0,0,.60);
 
       i {
-          font-size: 1.3rem;
-          margin-bottom: -8px;
+          font-size: $mobile-nav-icon-height;
+          margin-bottom: $mobile-nav-icon-offset;
       }
 
       .mobile-nav-text {
-          font-size: 0.8rem;
+          font-size: $mobile-nav-font-size;
       }
 
       &.nav-link {
-          padding-top: 0.25rem;
-          padding-bottom: 0.25rem;
+          padding-top: 0;
+          padding-bottom: 0;
       }
   
       &:hover {

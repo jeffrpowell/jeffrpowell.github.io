@@ -1,5 +1,7 @@
-$mobile-header-content-height: 70px;
-$mobile-header-padding-vertical: 0;//3px;
-$mobile-header-padding-horizontal: 0;//10px;
-$mobile-header-height: $mobile-header-content-height + $mobile-header-padding-vertical + $mobile-header-padding-vertical;
+$mobile-header-height: 4rem;
 
+$mobile-nav-active-height: 0.2rem;
+$mobile-nav-icon-height: 1.3rem;
+$mobile-nav-icon-offset: -.5rem;
+$mobile-nav-font-size: 0.8rem;
+$mobile-nav-height: 3rem;

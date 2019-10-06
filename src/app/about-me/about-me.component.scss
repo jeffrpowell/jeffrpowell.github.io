@@ -2,4 +2,11 @@
 
 #about-me-content {
     @include box-shadow-2;
+    padding: 1rem 3rem 2rem 3rem;
+
+    .social-icons {
+        i {
+            font-size: 1.5rem;
+        }
+    }
 }

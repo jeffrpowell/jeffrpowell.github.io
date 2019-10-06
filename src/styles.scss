@@ -17,16 +17,14 @@ a {
     }
 }
 
-@include media-breakpoint-up(xs) {
-    .h-xs-92 {
-        height: 92%;
-        padding-top: $mobile-header-height;
-    }
+.title {
+    font-size: 1.6rem;
+    font-weight: lighter;
 }
 
-@include media-breakpoint-up(md) {
-    .h-md-100 {
-        height: 100%;
-        padding-top: 0;
+@include media-breakpoint-down(sm) {
+    .mobile-padding {
+        padding-top: $mobile-header-height;
+        padding-bottom: $mobile-nav-height;
     }
 }
