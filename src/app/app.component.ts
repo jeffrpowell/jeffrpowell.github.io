@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CurrentRouteStateService } from './services/current-route-state/current-route-state.service';
 
 @Component({
   selector: 'app-root',
@@ -6,4 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  currentRouteName: string;
+
+  constructor(private _currentRouteStateService: CurrentRouteStateService) {
+    this._currentRouteStateService.name.subscribe(n => this.currentRouteName = n)
+  }
 }

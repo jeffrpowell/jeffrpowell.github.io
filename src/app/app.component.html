@@ -1,12 +1,11 @@
 <div id="mobile-brand" class="d-md-none fixed-top">
-  <ul class="nav">
-    <a class="navbar-brand" routerLink="/">
-      <img src="/assets/android-chrome-192x192.png">
-    </a>
-  </ul>
+  <a class="navbar-brand" routerLink="/">
+    <img src="/assets/android-chrome-192x192.png">
+  </a>
+  <div class="text-center d-inline-flex justify-content-center w-100 h-100 align-items-center"><span class="mobile-title">{{ currentRouteName }}</span></div>
 </div>
 <div class="container-fluid h-xs-92 h-md-100">
-  <div class="row">
+  <div class="row h-100">
     <div id="sidebar" class="col-md-3 col-lg-2 d-none d-md-flex flex-column">
       <div class="navbar-brand w-100 text-center">
         <a routerLink="/">
@@ -40,7 +39,7 @@
         </div>
       </div>
     </div>
-    <div id="component-wrapper" class="col">
+    <div id="component-wrapper" class="col h-100">
       <router-outlet></router-outlet>
     </div>
   </div>

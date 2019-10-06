@@ -1,3 +1,4 @@
+@import "../mixins";
 @import "../variables";
 
 @mixin brand-image {
@@ -8,27 +9,30 @@
   height: 100%;
 }
 
-.container-fluid {
-  > .row {
-    height: 100%;
-  }
-}
-
 #mobile-brand {
+  @include box-shadow-2;
+  height: $mobile-header-content-height;
   padding: $mobile-header-padding-vertical $mobile-header-padding-horizontal;
 
   .navbar-brand {
       height: $mobile-header-content-height;
+      position: absolute;
+      left: 10px;
 
       img {
         @include brand-image;
       }
   }
+
+  .mobile-title {
+    font-size: 1.6rem;
+    font-weight: lighter;
+  }
 }
 
 #sidebar {
   background: linear-gradient(#709F4F, 10%, #a5c180, 40%, #a5c180, 75%, #567646, 98%, #567646);
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  @include box-shadow-4;
   padding: 12px 0;
 
   .navbar-brand {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CurrentRouteStateService } from '../services/current-route-state/current-route-state.service';
 
 @Component({
   selector: 'app-tech',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TechComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _currentRouteStateService: CurrentRouteStateService) { 
+    _currentRouteStateService.name.next("Known Technologies");
+  }
 
   ngOnInit() {
   }

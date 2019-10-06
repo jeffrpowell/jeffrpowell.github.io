@@ -1,0 +1,5 @@
+@import "../../mixins";
+
+#about-me-content {
+    @include box-shadow-2;
+}
