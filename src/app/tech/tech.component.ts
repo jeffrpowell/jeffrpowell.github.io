@@ -13,6 +13,8 @@ export class TechComponent implements OnInit {
   }
 
   ngOnInit() {
+    //https://observablehq.com/@d3/zoomable-circle-packing
+    //https://observablehq.com/@d3/smooth-zooming
   }
 
 }
