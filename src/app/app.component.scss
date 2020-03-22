@@ -93,7 +93,6 @@
 }
 
 #mobile-nav {
-  @include box-shadow-4;
   background: linear-gradient(to right, #709F4F, 10%, #a5c180, 40%, #a5c180, 75%, #709F4F, 98%, #709F4F);
   height: $mobile-nav-height;
   padding-bottom: $mobile-nav-active-height;

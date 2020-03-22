@@ -1,7 +1,13 @@
 @import "../../mixins";
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
 
 #about-me-content {
-    @include box-shadow-2;
+    @include media-breakpoint-up(lg) {
+        @include box-shadow-2;
+    }
+
     padding: 1rem 3rem 2rem 3rem;
 
     .social-icons {

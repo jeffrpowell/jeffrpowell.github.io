@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --aot --port 4290 --live-reload",
+    "start": "ng serve --aot --host 0.0.0.0 --port 4290 --live-reload",
     "start-prod": "node --max_old_space_size=8192 node_modules/@angular/cli/bin/ng serve --prod --port 4290 --live-reload",
     "build": "ng build --prod && cpx package.json ./dist/",
     "dev-build": "ng build && cpx package.json ./dist/",
