@@ -21,7 +21,7 @@ export class TechBubbleChartComponent implements OnInit {
   set data(data: KnownTech) {
     let height = 500;
     let width = 600;
-    let radius = 6;
+    let radius = 20;
     let step = radius * 2;
     let theta = Math.PI * (3 - Math.sqrt(5));
     let circleData = Array.from({ length: 2000 }, (_, i) => {
@@ -29,12 +29,14 @@ export class TechBubbleChartComponent implements OnInit {
         a = theta * i;
       return [width / 2 + r * Math.cos(a), height / 2 + r * Math.sin(a)];
     });
-    let currentTransform: ZoomView = [width / 2, height / 2, height];
+    const rootTransform: ZoomView = [width / 2, height / 2, height];
+    let currentTransform: ZoomView = rootTransform;
 
     const svg = d3
       .select('#techBubbleChartSVG')
       .attr('preserveAspectRatio', 'xMinYMin meet')
-      .attr('viewBox', `0, 0, ${width}, ${height}`);
+      .attr('viewBox', `0, 0, ${width}, ${height}`)
+      .on('click', zoomToFullView);
 
     const g = svg.append('g');
 
@@ -44,17 +46,32 @@ export class TechBubbleChartComponent implements OnInit {
       .attr('cx', ([x]) => x)
       .attr('cy', ([, y]) => y)
       .attr('r', radius)
-      .attr('fill', (d, i) => d3.interpolateRainbow(i / 360));
+      .attr('fill', (d, i) => d3.interpolateRainbow(i / 360))
+      .on('mouseover', function() {
+        d3.select(this).attr('stroke', '#000');
+      })
+      .on('mouseout', function() {
+        d3.select(this).attr('stroke', null);
+      })
+      .on('click', function() {
+        d3.event.stopPropagation(); //prevent triggering click on svg
+        zoomToCircleCenter([d3.select(this).attr('cx'), d3.select(this).attr('cy')]);
+      });
 
-    function transition() {
-      const d = circleData[Math.floor(Math.random() * circleData.length)];
-      const i: ZoomInterpolator = d3.interpolateZoom(currentTransform, [...d, radius * 2 + 1] as ZoomView);
+    function zoomToCircleCenter(d: string[]) {
+      const interpolator: ZoomInterpolator = d3.interpolateZoom(currentTransform, [...d, radius * 2 + 1] as ZoomView);
+      runTransition(interpolator);
+    }
 
+    function zoomToFullView() {
+      const interpolator: ZoomInterpolator = d3.interpolateZoom(currentTransform, rootTransform);
+      runTransition(interpolator);
+    }
+
+    function runTransition(interpolator: ZoomInterpolator) {
       g.transition()
-        .delay(250)
-        .duration(i.duration)
-        .attrTween('transform', () => t => transform((currentTransform = i(t))))
-        .on('end', transition);
+        .duration(interpolator.duration)
+        .attrTween('transform', () => t => transform((currentTransform = interpolator(t))));
     }
 
     function transform([x, y, r]: ZoomView) {
@@ -64,6 +81,5 @@ export class TechBubbleChartComponent implements OnInit {
         translate(${-x}, ${-y})
       `;
     }
-    svg.call(transition).node();
   }
 }
