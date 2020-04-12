@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 import { ZoomView, ZoomInterpolator } from 'd3';
 
 @Component({
-  selector: 'app-tech-bubble-chart',
+  selector: 'tech-bubble-chart',
   templateUrl: './tech-bubble-chart.component.html',
   styleUrls: ['./tech-bubble-chart.component.scss'],
   encapsulation: ViewEncapsulation.None
@@ -25,7 +25,10 @@ export class TechBubbleChartComponent implements OnInit {
     });
     let currentTransform: ZoomView = [width / 2, height / 2, height];
 
-    const svg = d3.select('#techBubbleChartSVG').attr('viewBox', `0, 0, ${width}, ${height}`);
+    const svg = d3
+      .select('#techBubbleChartSVG')
+      .attr('preserveAspectRatio', 'xMinYMin meet')
+      .attr('viewBox', `0, 0, ${width}, ${height}`);
 
     const g = svg.append('g');
 
