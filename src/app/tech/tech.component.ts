@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CurrentRouteStateService } from '../services/current-route-state/current-route-state.service';
+import { KNOWN_TECH, KnownTech } from './tech';
 
 @Component({
   selector: 'app-tech',
@@ -7,14 +8,13 @@ import { CurrentRouteStateService } from '../services/current-route-state/curren
   styleUrls: ['./tech.component.scss']
 })
 export class TechComponent implements OnInit {
+  public data: KnownTech;
 
-  constructor(private _currentRouteStateService: CurrentRouteStateService) { 
-    _currentRouteStateService.name.next("Known Technologies");
+  constructor(private _currentRouteStateService: CurrentRouteStateService) {
+    _currentRouteStateService.name.next('Known Technologies');
   }
 
   ngOnInit() {
-    //https://observablehq.com/@d3/zoomable-circle-packing
-    //https://observablehq.com/@d3/smooth-zooming
+    this.data = KNOWN_TECH;
   }
-
 }
