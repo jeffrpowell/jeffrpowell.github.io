@@ -21,7 +21,7 @@ export class TechBubbleChartComponent implements OnInit {
   set data(data: KnownTech) {
     let height = 500;
     let width = 600;
-    let radius = 20;
+    let radius = 16;
     let step = radius * 2;
     let theta = Math.PI * (3 - Math.sqrt(5));
     let circleData = Array.from({ length: 2000 }, (_, i) => {
@@ -36,7 +36,7 @@ export class TechBubbleChartComponent implements OnInit {
       .select('#techBubbleChartSVG')
       .attr('preserveAspectRatio', 'xMinYMin meet')
       .attr('viewBox', `0, 0, ${width}, ${height}`)
-      .on('click', zoomToFullView);
+      .on('mousedown', zoomToFullView);
 
     const g = svg.append('g');
 
@@ -53,8 +53,9 @@ export class TechBubbleChartComponent implements OnInit {
       .on('mouseout', function() {
         d3.select(this).attr('stroke', null);
       })
-      .on('click', function() {
+      .on('mousedown', function() {
         d3.event.stopPropagation(); //prevent triggering click on svg
+        d3.select(this).attr('stroke', null);
         zoomToCircleCenter([d3.select(this).attr('cx'), d3.select(this).attr('cy')]);
       });
 
