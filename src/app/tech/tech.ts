@@ -28,10 +28,6 @@ export const KNOWN_TECH: KnownTech = {
           value: 3
         },
         {
-          name: 'C#',
-          value: 1
-        },
-        {
           name: 'C++',
           value: 1
         },
@@ -87,10 +83,6 @@ export const KNOWN_TECH: KnownTech = {
         {
           name: 'Chrome',
           value: 3
-        },
-        {
-          name: 'Opera',
-          value: 1
         }
       ]
     },
@@ -278,10 +270,6 @@ export const KNOWN_TECH: KnownTech = {
         {
           name: 'Drupal',
           value: 2
-        },
-        {
-          name: 'React',
-          value: 1
         }
       ]
     },
@@ -295,10 +283,6 @@ export const KNOWN_TECH: KnownTech = {
         {
           name: 'Linux',
           value: 2
-        },
-        {
-          name: 'Macintosh',
-          value: 1
         }
       ]
     },
@@ -339,11 +323,11 @@ export const KNOWN_TECH: KnownTech = {
           value: 3
         },
         {
-          name: 'Kubernetes',
-          value: 1
+          name: 'Zookeeper',
+          value: 2
         },
         {
-          name: 'Zookeeper',
+          name: 'AWS',
           value: 2
         }
       ]
@@ -400,27 +384,6 @@ export const KNOWN_TECH: KnownTech = {
       ]
     },
     {
-      name: 'Miscellaneous Libraries',
-      children: [
-        {
-          name: 'POI',
-          value: 2
-        },
-        {
-          name: 'PDFBox',
-          value: 2
-        },
-        {
-          name: 'jQuery',
-          value: 3
-        },
-        {
-          name: 'Jackson2',
-          value: 3
-        }
-      ]
-    },
-    {
       name: 'Business software',
       children: [
         {
@@ -434,10 +397,6 @@ export const KNOWN_TECH: KnownTech = {
         {
           name: 'Atlassian Suite',
           value: 3
-        },
-        {
-          name: 'Slack',
-          value: 1
         }
       ]
     },
@@ -451,32 +410,6 @@ export const KNOWN_TECH: KnownTech = {
         {
           name: 'Bootstrap',
           value: 3
-        }
-      ]
-    },
-    {
-      name: 'Cloud Providers',
-      children: [
-        {
-          name: 'AWS',
-          value: 2
-        },
-        {
-          name: 'Azure',
-          value: 1
-        }
-      ]
-    },
-    {
-      name: 'Mobile Development',
-      children: [
-        {
-          name: 'Cordova',
-          value: 1
-        },
-        {
-          name: 'Ionic',
-          value: 1
         }
       ]
     }

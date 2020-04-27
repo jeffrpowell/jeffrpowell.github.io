@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CurrentRouteStateService } from './services/current-route-state/current-route-state.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +9,10 @@ import { CurrentRouteStateService } from './services/current-route-state/current
 })
 export class AppComponent {
   currentRouteName: string;
+  currentYear: number;
 
   constructor(private _currentRouteStateService: CurrentRouteStateService) {
     this._currentRouteStateService.name.subscribe(n => this.currentRouteName = n)
+    this.currentYear = moment().year();
   }
 }

@@ -10,10 +10,10 @@ html, body {
 }
 
 a {
-    color: #022d8a;
+    color: lighten($colors-dark-border, 5%);
 
     &:hover {
-        color: #002066;
+        color: $colors-dark-border;
     }
 }
 

@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import * as d3 from 'd3';
 import { ZoomView, ZoomInterpolator, PackLayout, HierarchyCircularNode, ScaleLinear, Transition } from 'd3';
 import { KnownTech } from '../tech/tech';
+import { COLORS } from '../../colors';
 
 //https://observablehq.com/@d3/zoomable-circle-packing
 //https://observablehq.com/@d3/smooth-zooming
@@ -28,7 +29,7 @@ export class TechBubbleChartComponent implements OnInit {
 
     const svg = d3
       .select('#techBubbleChartSVG')
-      .attr('preserveAspectRatio', 'xMinYMin meet')
+      .attr('preserveAspectRatio', 'none')
       .attr('viewBox', `0, 0, ${width}, ${height}`)
       .on('mousedown', zoomToFullView);
 
@@ -40,10 +41,10 @@ export class TechBubbleChartComponent implements OnInit {
       .attr('cx', d => d.x)
       .attr('cy', d => d.y)
       .attr('r', d => d.r)
-      .attr('fill', (d, i) => (d.children ? '#C4E697' : 'white'))
+      .attr('fill', (d, i) => (d.children ? COLORS.medium : COLORS.light))
       .attr('pointer-events', d => (!d.children ? 'none' : null))
       .on('mouseover', function() {
-        d3.select(this).attr('stroke', '#000');
+        d3.select(this).attr('stroke', COLORS["dark-border"]);
       })
       .on('mouseout', function() {
         d3.select(this).attr('stroke', null);
@@ -66,7 +67,12 @@ export class TechBubbleChartComponent implements OnInit {
       .style('font-size', d => (1 / (2 * d.depth)) + "rem")
       .attr('x', d => d.x)
       .attr('y', d => d.y)
-      .text(d => d.data.name);
+      .html(d => generateLabelSVGText(d.data.name, d.x));
+    
+    //small tweak to make category labels more readable
+    labelSVGGroup
+      .filter(d => d.parent == dataRoot)
+      .style('font-weight', "bold");
 
     function pack(data: any): HierarchyCircularNode<any> {
       return d3
@@ -78,6 +84,25 @@ export class TechBubbleChartComponent implements OnInit {
           .sum(d => d.value)
           .sort((a, b) => b.value - a.value)
       );
+    }
+
+    function generateLabelSVGText(rawLabel: string, x: number) : string {
+      if (rawLabel.indexOf(' ') < 0) {
+        return rawLabel;
+      }
+      const regex: RegExp = new RegExp('[^ ]+(?: &)?', 'g');
+      let matchArray;
+      let firstMatch: boolean = true;
+      let finalString: string;
+      while ((matchArray = regex.exec(rawLabel)) !== null) {
+        if (firstMatch) {
+          finalString = "<tspan x='"+x+"' dy='-0.5em'>"+matchArray[0]+"</tspan>";
+          firstMatch = false;
+        } else {
+          finalString += "<tspan x='"+x+"' dy='1.25em'>"+matchArray[0]+"</tspan>"
+        }
+      }
+      return finalString;
     }
 
     function zoomToCircleCenter(d: HierarchyCircularNode<any>) {

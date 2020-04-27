@@ -25,7 +25,7 @@
 }
 
 #sidebar {
-  background: linear-gradient(#709F4F, 10%, #a5c180, 40%, #a5c180, 75%, #567646, 98%, #567646);
+  background: linear-gradient($colors-medium, 10%, $colors-light, 40%, $colors-light, 75%, $colors-dark, 98%, $colors-dark);
   @include box-shadow-4;
   padding: 12px 0;
 
@@ -46,7 +46,7 @@
     
     .nav-item {
         &.active {
-            border-right: 2px solid #385028;
+            border-right: 2px solid $colors-dark-border;
 
             a {
                 color: rgba(0,0,0,.90);
@@ -93,13 +93,13 @@
 }
 
 #mobile-nav {
-  background: linear-gradient(to right, #709F4F, 10%, #a5c180, 40%, #a5c180, 75%, #709F4F, 98%, #709F4F);
+  background: linear-gradient(to right, $colors-medium, 10%, $colors-light, 40%, $colors-light, 75%, $colors-dark, 98%, $colors-dark);
   height: $mobile-nav-height;
   padding-bottom: $mobile-nav-active-height;
 
   .nav-item {
     &.active {
-      border-top: $mobile-nav-active-height solid #385028;
+      border-top: $mobile-nav-active-height solid $colors-dark-border;
   
       a {
           color: rgba(0,0,0,.90);
