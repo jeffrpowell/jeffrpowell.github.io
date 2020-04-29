@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
+import { Component, ViewEncapsulation, Input } from '@angular/core';
 import * as d3 from 'd3';
-import { ZoomView, ZoomInterpolator, PackLayout, HierarchyCircularNode, ScaleLinear, Transition } from 'd3';
-import { KnownTech } from '../tech/tech';
+import { ZoomView, ZoomInterpolator, HierarchyCircularNode, Transition } from 'd3';
+import { KnownTech, TechValue } from '../tech/tech';
 import { COLORS } from '../../colors';
 
 //https://observablehq.com/@d3/zoomable-circle-packing
@@ -12,11 +12,19 @@ import { COLORS } from '../../colors';
   styleUrls: ['./tech-bubble-chart.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class TechBubbleChartComponent implements OnInit {
-  private svg: any;
-  constructor() {}
+export class TechBubbleChartComponent {
+  private valueToZoomFunctions: any;
 
-  ngOnInit(): void {}
+  constructor() {
+    this.valueToZoomFunctions = {};
+  }
+
+  @Input()
+  set focusOnValue(value: TechValue) {
+    if (value !== undefined && value.name !== "") {
+      this.valueToZoomFunctions[value.name]();
+    }
+  }
 
   @Input()
   set data(data: KnownTech) {
@@ -53,7 +61,8 @@ export class TechBubbleChartComponent implements OnInit {
         d3.event.stopPropagation(); //prevent triggering click on svg
         d3.select(this).attr('stroke', null);
         zoomToCircleCenter(d);
-      });
+      })
+      .each((d: HierarchyCircularNode<any>) => !d.children ? this.valueToZoomFunctions[d.data.name] = () => zoomToCircleCenter(d.parent) : () => {});
 
     const labelSVGGroup = svg
       .append('g')
