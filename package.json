@@ -24,8 +24,7 @@
   },
   "lint-staged": {
     "./src/{app,environments,assets}/**/*.{ts,js,scss,css,json}": [
-      "prettier --config ./.prettierrc --write",
-      "git add"
+      "prettier --config ./.prettierrc --write"
     ]
   },
   "private": true,
