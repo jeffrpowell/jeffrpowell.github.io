@@ -1184,17 +1184,17 @@
   resolved "https://registry.npmjs.org/@mdi/font/-/font-6.5.95.tgz"
   integrity sha512-ES5rj6J39FUkHe/b3C9SJs8bqIungYhuU7rBINTBaHOv/Ce4RCb3Gw08CZVl32W33UEkgRkzyWaIedV4at+QHg==
 
-"@ng-bootstrap/ng-bootstrap@~7.0.0":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@ng-bootstrap/ng-bootstrap/-/ng-bootstrap-7.0.0.tgz#3bfa62eb52fdb891b1ce693ea11c39127e2d1ab7"
-  integrity sha512-SxUaptGWJmCxM0d2Zy1mx7K7p/YBwGZ69NmmBQVY4BE6p5av0hWrVmv9rzzfBz0rhxU7RPZLor2Jpaoq8Xyl4w==
+"@ng-bootstrap/ng-bootstrap@~9.0.0":
+  version "9.0.2"
+  resolved "https://registry.yarnpkg.com/@ng-bootstrap/ng-bootstrap/-/ng-bootstrap-9.0.2.tgz#1c00c9a9720fe77b27cb2859d4279bae57758b6d"
+  integrity sha512-MFtpBFKOtLZWFE8JnJWOnYLxXK3GVmVP16vhJsikdxiDVl7CtrnO+YmCYqK30WdS5eIvYKRBJF/hwOH8WvwYFQ==
   dependencies:
     tslib "^2.0.0"
 
-"@ng-select/ng-select@~5.0.0":
-  version "5.0.15"
-  resolved "https://registry.yarnpkg.com/@ng-select/ng-select/-/ng-select-5.0.15.tgz#faa97c506e524e8300ae4bf9fba2fc930f5d0b33"
-  integrity sha512-cPs4QGBjkWVli2Gz5e0STRBSTdiVh2VHw+jwGEqLPRdVTSab4LT3QRoN1PIKOSE8sy2h7IiEcxBGjC48hyRWKg==
+"@ng-select/ng-select@~6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@ng-select/ng-select/-/ng-select-6.0.0.tgz#126306ad5c0140f13788d016f083fde700ef526c"
+  integrity sha512-lgn9bEZrMR5duPb0Pnnfuu/6SwpeFnT8HDBBwFMdeMOvV0BIkkd9ZIX2gMqMEYWfdkftO9uH8O07k3K8Un74Lw==
   dependencies:
     tslib "^2.0.0"
 
