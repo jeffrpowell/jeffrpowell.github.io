@@ -28,6 +28,7 @@ tools/gulp-tasks/cldr/cldr-data/
 .settings/
 *.sublime-workspace
 nbproject/
+.vscode/
 
 # IDE - VSCode
 .vscode/*
