@@ -21,7 +21,7 @@ export class TechBubbleChartComponent {
 
   @Input()
   set focusOnValue(value: TechValue) {
-    if (value !== undefined && value.name !== "") {
+    if (value !== undefined && value.name !== '') {
       this.valueToZoomFunctions[value.name]();
     }
   }
@@ -52,17 +52,19 @@ export class TechBubbleChartComponent {
       .attr('fill', (d, i) => (d.children ? COLORS.medium : COLORS.light))
       .attr('pointer-events', d => (!d.children ? 'none' : null))
       .on('mouseover', function() {
-        d3.select(this).attr('stroke', COLORS["dark-border"]);
+        d3.select(this).attr('stroke', COLORS['dark-border']);
       })
       .on('mouseout', function() {
         d3.select(this).attr('stroke', null);
       })
-      .on('mousedown', function(d: HierarchyCircularNode<any>) {
-        d3.event.stopPropagation(); //prevent triggering click on svg
+      .on('mousedown', function(event, d: HierarchyCircularNode<any>) {
+        event.stopPropagation(); //prevent triggering click on svg
         d3.select(this).attr('stroke', null);
         zoomToCircleCenter(d);
       })
-      .each((d: HierarchyCircularNode<any>) => !d.children ? this.valueToZoomFunctions[d.data.name] = () => zoomToCircleCenter(d.parent) : () => {});
+      .each((d: HierarchyCircularNode<any>) =>
+        !d.children ? (this.valueToZoomFunctions[d.data.name] = () => zoomToCircleCenter(d.parent)) : () => {}
+      );
 
     const labelSVGGroup = svg
       .append('g')
@@ -73,15 +75,13 @@ export class TechBubbleChartComponent {
       .join('text')
       .style('fill-opacity', d => (d.parent === currentNode ? 1 : 0))
       .style('display', d => (d.parent === currentNode ? 'inline' : 'none'))
-      .style('font-size', d => (1 / (2 * d.depth)) + "rem")
+      .style('font-size', d => 1 / (2 * d.depth) + 'rem')
       .attr('x', d => d.x)
       .attr('y', d => d.y)
       .html(d => generateLabelSVGText(d.data.name, d.x));
-    
+
     //small tweak to make category labels more readable
-    labelSVGGroup
-      .filter(d => d.parent == dataRoot)
-      .style('font-weight', "bold");
+    labelSVGGroup.filter(d => d.parent == dataRoot).style('font-weight', 'bold');
 
     function pack(data: any): HierarchyCircularNode<any> {
       return d3
@@ -95,7 +95,7 @@ export class TechBubbleChartComponent {
       );
     }
 
-    function generateLabelSVGText(rawLabel: string, x: number) : string {
+    function generateLabelSVGText(rawLabel: string, x: number): string {
       if (rawLabel.indexOf(' ') < 0) {
         return rawLabel;
       }
@@ -105,10 +105,10 @@ export class TechBubbleChartComponent {
       let finalString: string;
       while ((matchArray = regex.exec(rawLabel)) !== null) {
         if (firstMatch) {
-          finalString = "<tspan x='"+x+"' dy='-0.5em'>"+matchArray[0]+"</tspan>";
+          finalString = "<tspan x='" + x + "' dy='-0.5em'>" + matchArray[0] + '</tspan>';
           firstMatch = false;
         } else {
-          finalString += "<tspan x='"+x+"' dy='1.25em'>"+matchArray[0]+"</tspan>"
+          finalString += "<tspan x='" + x + "' dy='1.25em'>" + matchArray[0] + '</tspan>';
         }
       }
       return finalString;
@@ -140,8 +140,8 @@ export class TechBubbleChartComponent {
           return d.parent === currentNode || (this as SVGTextElement).style.display === 'inline';
         })
         .transition(labelTransition)
-        .style("fill-opacity", d => d.parent === currentNode ? 1 : 0)
-        .style("display", d => (d.parent === currentNode ? 'inline' : 'none'))
+        .style('fill-opacity', d => (d.parent === currentNode ? 1 : 0))
+        .style('display', d => (d.parent === currentNode ? 'inline' : 'none'));
     }
 
     function transform([x, y, r]: ZoomView) {
