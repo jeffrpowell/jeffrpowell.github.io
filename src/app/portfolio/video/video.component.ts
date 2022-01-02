@@ -13,7 +13,11 @@ export class VideoComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  getUrl(): string {
+  getThumbnailUrl(): string {
     return "https://img.youtube.com/vi/" + this.video.id + "/hqdefault.jpg";
+  }
+
+  openVideoPage() {
+
   }
 }

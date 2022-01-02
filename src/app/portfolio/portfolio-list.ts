@@ -5,7 +5,8 @@ export interface PortfolioItem {
 }
 
 export interface PortfolioRepo extends PortfolioItem {
-    url: string
+    url: string,
+    image: string,
     techTags: string[];
 }
 
@@ -37,6 +38,7 @@ export const PORTFOLIO_REPOS: PortfolioRepo[] = [
         summary: "This website is published as an open-source project.",
         description: "This website is published as an open-source project.",
         url: "https://github.com/jeffrpowell/jeffrpowell.github.io",
+        image: "repo_website.jpg",
         techTags: ["Angular", "Javascript", "HTML", "SASS", "CSS", "GitHub", "D3.js"]
     },
     {
@@ -44,6 +46,7 @@ export const PORTFOLIO_REPOS: PortfolioRepo[] = [
         summary: "Multi-threaded Windows backup solution",
         description: "I needed a program that could manage copying over files to my backup drive.",
         url: "https://github.com/jeffrpowell/dosbackup",
+        image: "repo_website.jpg",
         techTags: ["Java", "Swing", "Threads", "SwingWorker", "ForkJoin"]
     }
 ]

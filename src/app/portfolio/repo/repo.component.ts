@@ -13,4 +13,12 @@ export class RepoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  openRepoTab() {
+    window.open(this.repo.url, '_blank');
+  }
+
+  getThumbnailUrl(): string {
+    return "/assets/" + this.repo.image;
+  }
+
 }
