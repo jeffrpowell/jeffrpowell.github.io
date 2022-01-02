@@ -3,7 +3,7 @@
         <h1>Code Repositories</h1>
     </div>
 </div>
-<div class="row"> 
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3"> 
     <repo-card *ngFor="let repo of repos; index as i" [repo]="repo"></repo-card>
 </div>
 <div class="row"> 
@@ -11,6 +11,6 @@
         <h1>Videos</h1>
     </div>
 </div>
-<div class="row"> 
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3"> 
     <video-card *ngFor="let video of videos; index as i" [video]="video"></video-card>
 </div>
