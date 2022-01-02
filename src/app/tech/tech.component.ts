@@ -16,7 +16,7 @@ export class TechComponent implements OnInit {
   public zoomToTerm: TechValue;
 
   constructor(private _currentRouteStateService: CurrentRouteStateService) {
-    _currentRouteStateService.name.next('Known Technologies');
+    _currentRouteStateService.name.next('Known Tech');
   }
 
   ngOnInit() {
