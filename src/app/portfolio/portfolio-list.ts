@@ -37,7 +37,7 @@ export const PORTFOLIO_REPOS: PortfolioRepo[] = [
         title: "This portfolio website",
         summary: "This website is published as an open-source project.",
         description: "This website is published as an open-source project.",
-        url: "https://github.com/jeffrpowell/jeffrpowell.github.io",
+        url: "https://github.com/jeffrpowell/jeffrpowell.github.io/tree/master-src",
         image: "repo_website.jpg",
         techTags: ["Angular", "Javascript", "HTML", "SASS", "CSS", "GitHub", "D3.js"]
     },
@@ -46,7 +46,7 @@ export const PORTFOLIO_REPOS: PortfolioRepo[] = [
         summary: "PDF joining and splitting utility",
         description: "Quickly take multiple PDFs and join them together into a single PDF. Also quickly take that bloated PDF and split it into separate PDFs for each page.",
         url: "https://github.com/jeffrpowell/PDFSplicer",
-        image: "repo_website.jpg",
+        image: "pdf.png",
         techTags: ["Java", "Swing", "PDF"]
     },
     {
@@ -54,7 +54,7 @@ export const PORTFOLIO_REPOS: PortfolioRepo[] = [
         summary: "Multi-threaded Windows backup solution",
         description: "I needed a program that could manage copying over files to my backup drive.",
         url: "https://github.com/jeffrpowell/dosbackup",
-        image: "repo_website.jpg",
+        image: "backup.jpg",
         techTags: ["Java", "Swing", "Threads", "SwingWorker", "ForkJoin"]
     },
     {
@@ -62,7 +62,7 @@ export const PORTFOLIO_REPOS: PortfolioRepo[] = [
         summary: "My Advent of Code solutions",
         description: "I have been an active participant in Advent of Code since 2018. Over the years, I've built up a nice framework to solve each year's puzzles a little more quickly.",
         url: "https://github.com/jeffrpowell/adventofcode",
-        image: "repo_website.jpg",
+        image: "aoc.jpg",
         techTags: ["Java", "Design Patterns"]
     },
     {
@@ -70,7 +70,7 @@ export const PORTFOLIO_REPOS: PortfolioRepo[] = [
         summary: "Replicate .bashrc on Windows Command Prompt",
         description: "It is possible to setup your instance of Command Prompt with aliased scripts for your personal workflow. This repo shows you how and provides a few examples to get you started on your own scripts.",
         url: "https://github.com/jeffrpowell/doskey",
-        image: "repo_website.jpg",
+        image: "commandPrompt.png",
         techTags: ["Command Prompt", "DOS", "Scripting", "Automation"]
     }
 ]
