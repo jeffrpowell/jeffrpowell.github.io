@@ -304,15 +304,15 @@ export const KNOWN_TECH: KnownTech = {
       ]
     },
     {
-      name: 'System Software',
+      name: 'CI/CD',
       children: [
         {
           name: 'Artifactory',
-          value: 3
+          value: 2
         },
         {
           name: 'Jenkins',
-          value: 3
+          value: 2
         },
         {
           name: 'YAML',
@@ -321,13 +321,18 @@ export const KNOWN_TECH: KnownTech = {
         {
           name: 'Docker',
           value: 3
+        }
+      ]
+    },
+    {
+      name: "Public Cloud",
+      children: [
+        {
+          name: 'Amazon AWS',
+          value: 1
         },
         {
-          name: 'Zookeeper',
-          value: 2
-        },
-        {
-          name: 'AWS',
+          name: 'Cloudflare',
           value: 2
         }
       ]
