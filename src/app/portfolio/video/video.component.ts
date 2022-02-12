@@ -17,7 +17,11 @@ export class VideoComponent implements OnInit {
     return "https://img.youtube.com/vi/" + this.video.id + "/hqdefault.jpg";
   }
 
-  openVideoPage() {
+  openVideoUrl() {
+    window.open(this.makeYoutubeUrl(this.video.id), '_blank');
+  }
 
+  private makeYoutubeUrl(id: string) : string {
+    return "https://www.youtube.com/watch?v=" + id;
   }
 }
