@@ -8,12 +8,15 @@ import { CurrentRouteStateService } from '../services/current-route-state/curren
 })
 export class AboutMeComponent implements OnInit {
   pageName: string;
+  hobbies: string[];
   constructor(private _currentRouteStateService: CurrentRouteStateService) { 
     this.pageName = "About Me";
     _currentRouteStateService.name.next(this.pageName);
   }
-
+  
   ngOnInit() {
+    this.hobbies = [
+      "board games", "singing", "piano", "puzzles", "cooking", "baking", "panoramic photography", "road biking", "skiing", "musicals", "woodworking", "hiking", "video post-production", "reading", "podcasts", "video games", "Factorio"];
   }
 
 }
