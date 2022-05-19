@@ -18,7 +18,7 @@ export class RepoComponent implements OnInit {
   }
 
   getThumbnailUrl(): string {
-    return "/assets/" + this.repo.image;
+    return "https://assets.jeffpowell.dev/" + this.repo.image;
   }
 
 }
