@@ -1,13 +1,13 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TangramCalendarComponent } from './tangram-calendar.component';
+import { NgModule } from '@angular/core';
 import { TangramCalendarRoutingModule } from './tangram-calendar-routing.module';
-
-
+import { TangramCalendarComponent } from './tangram-calendar.component';
+import { ColorTangramPipe } from './color-tangram.pipe';
 
 @NgModule({
   declarations: [
-    TangramCalendarComponent
+    TangramCalendarComponent,
+    ColorTangramPipe
   ],
   imports: [
     CommonModule,
