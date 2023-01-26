@@ -5,6 +5,7 @@ const routes: Routes = [
   { path: 'whois', loadChildren: () => import('./about-me/about-me.module').then(m => m.AboutMeModule) },
   { path: 'tech', loadChildren: () => import('./tech/tech.module').then(m => m.TechModule) },
   { path: 'portfolio', loadChildren: () => import('./portfolio/portfolio.module').then(m => m.PortfolioModule) },
+  { path: 'tangram', loadChildren: () => import('./tangram-calendar/tangram-calendar.module').then(m => m.TangramCalendarModule) },
   { path: '**', redirectTo: 'whois', pathMatch: 'full' }
 ];
 
