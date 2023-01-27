@@ -18,7 +18,8 @@ export class TangramCalendarComponent implements OnInit {
 
   ngOnInit(): void {
     this.showSolution = false;
-    const targetDate = new Date();
+    const localDate = new Date();
+    const targetDate = new Date(localDate.getFullYear(), localDate.getMonth(), localDate.getDate());
     this.targetDateStr = targetDate.toISOString().substring(0, 10);
     this.tangramDataService.getHint(targetDate).subscribe(body => this.hint = body);
     this.tangramDataService.getSolution(targetDate).subscribe(body => this.solution = body);

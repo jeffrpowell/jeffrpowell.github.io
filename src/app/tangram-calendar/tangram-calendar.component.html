@@ -5,14 +5,14 @@
     <div class="col-md">
         <h2>Hint</h2>
         <ul class="list-unstyled tangram-list">
-            <li class="gridRow" *ngFor="let row of hint" [innerHtml]="row | colorTangram">
+            <li class="gridRow" *ngFor="let hintRow of hint" [innerHtml]="hintRow | colorTangram">
             </li>
         </ul>
     </div>
     <div class="col-md">
         <h2>Solution</h2>
         <ul *ngIf="showSolution" class="list-unstyled tangram-list">
-            <li class="gridRow" *ngFor="let row of solution" [innerHtml]="row | colorTangram">
+            <li class="gridRow" *ngFor="let solutionRow of solution" [innerHtml]="solutionRow | colorTangram">
             </li>
         </ul>
         <button 
