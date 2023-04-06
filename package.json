@@ -5,29 +5,13 @@
   "author": "Jeff Powell",
   "license": "MIT",
   "scripts": {
-    "ng": "ng",
     "start": "ng serve --host 0.0.0.0 --port 4290 --live-reload",
     "start-prod": "node --max_old_space_size=8192 node_modules/@angular/cli/bin/ng serve --configuration production --port 4290 --live-reload",
-    "build": "ng build --configuration production && cpx package.json ./dist/",
-    "dev-build": "ng build && cpx package.json ./dist/",
-    "lint": "ng lint",
-    "bundle-report": "ng build --configuration production --stats-json && webpack-bundle-analyzer dist/stats.json",
-    "watch": "ng lint && ng build --aot --watch --verbose",
-    "watch-prod": "ng lint && ng build --configuration production --watch --verbose",
+    "build": "ng build --configuration production",
+    "dev-build": "ng build",
     "format:check": "prettier --config ./.prettierrc --check \"./src/{app,environments,assets}/**/*.{ts,js,json,css,scss}\"",
     "format:fix": "prettier --config ./.prettierrc --write \"./src/{app,environments,assets}/**/*.{ts,js,json,css,scss}\""
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "./src/{app,environments,assets}/**/*.{ts,js,scss,css,json}": [
-      "prettier --config ./.prettierrc --write"
-    ]
-  },
-  "private": true,
   "dependencies": {
     "@angular/animations": "~13.1.1",
     "@angular/common": "~13.1.1",
@@ -64,13 +48,7 @@
     "@types/d3": "^7.0.0",
     "@types/lodash-es": "^4.17.3",
     "@types/node": "^16.0.0",
-    "angular-cli-ghpages": "^1.0.0",
-    "codelyzer": "^6.0.0",
-    "cpx": "~1.5.0",
-    "fibers": "4.0.2",
     "html-webpack-plugin": "^5.5.0",
-    "husky": "^7.0.1",
-    "lint-staged": "^12.0.8",
     "node-sass": "7.0.0",
     "prettier": "^2.0.0",
     "ts-node": "~8.3.0",
