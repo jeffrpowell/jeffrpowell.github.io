@@ -16,7 +16,7 @@ export class AboutMeComponent implements OnInit {
   
   ngOnInit() {
     this.hobbies = [
-      "board games", "singing", "piano", "puzzles", "cooking", "baking", "panoramic photography", "road biking", "skiing", "musicals", "woodworking", "hiking", "video post-production", "reading", "podcasts", "video games", "Factorio"];
+      "board games", "singing", "piano", "puzzles", "cooking", "baking", "panoramic photography", "road biking", "skiing", "musicals", "woodworking", "hiking", "video post-production", "reading", "podcasts", "video games"];
   }
 
 }
