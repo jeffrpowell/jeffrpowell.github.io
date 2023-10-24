@@ -73,25 +73,29 @@ export const KNOWN_TECH: KnownTech = {
           value: 3
         },
         {
-          name: 'Internet Explorer',
-          value: 3
-        },
-        {
           name: 'Edge',
-          value: 3
+          value: 2
         },
         {
           name: 'Chrome',
-          value: 3
+          value: 2
         }
       ]
     },
     {
-      name: 'Network Communication',
+      name: 'Network Protocol',
       children: [
         {
           name: 'HTTP/1',
           value: 3
+        },
+        {
+          name: 'HTTP/2',
+          value: 1
+        },
+        {
+          name: 'HTTP/3',
+          value: 1
         },
         {
           name: 'AJAX',
@@ -106,20 +110,12 @@ export const KNOWN_TECH: KnownTech = {
           value: 3
         },
         {
-          name: 'RabbitMQ',
-          value: 3
+          name: 'AMQP (RabbitMQ)',
+          value: 2
         },
         {
           name: 'JSON',
           value: 3
-        },
-        {
-          name: 'Java Jersey2',
-          value: 3
-        },
-        {
-          name: 'HATEOAS',
-          value: 1
         }
       ]
     },
@@ -131,7 +127,7 @@ export const KNOWN_TECH: KnownTech = {
           value: 3
         },
         {
-          name: 'Log4j2',
+          name: 'OpenSearch',
           value: 3
         },
         {
@@ -148,11 +144,15 @@ export const KNOWN_TECH: KnownTech = {
         },
         {
           name: 'Eclipse Memory Analyzer',
-          value: 3
+          value: 2
         },
         {
           name: 'JVisualVM',
-          value: 3
+          value: 2
+        },
+        {
+          name: 'Fullstory',
+          value: 2
         }
       ]
     },
@@ -160,7 +160,7 @@ export const KNOWN_TECH: KnownTech = {
       name: 'Testing',
       children: [
         {
-          name: 'JUnit',
+          name: 'JUnit 5',
           value: 3
         },
         {
@@ -177,6 +177,10 @@ export const KNOWN_TECH: KnownTech = {
         },
         {
           name: 'JMeter',
+          value: 2
+        },
+        {
+          name: 'Cypress',
           value: 2
         }
       ]
@@ -219,7 +223,7 @@ export const KNOWN_TECH: KnownTech = {
         },
         {
           name: 'Yarn',
-          value: 1
+          value: 2
         },
         {
           name: 'Pip',
@@ -236,7 +240,7 @@ export const KNOWN_TECH: KnownTech = {
       children: [
         {
           name: 'MongoDB',
-          value: 3
+          value: 2
         },
         {
           name: 'SQL Server',
@@ -248,6 +252,10 @@ export const KNOWN_TECH: KnownTech = {
         },
         {
           name: 'Memcached',
+          value: 2
+        },
+        {
+          name: 'Redis',
           value: 2
         },
         {
@@ -264,12 +272,12 @@ export const KNOWN_TECH: KnownTech = {
           value: 2
         },
         {
-          name: 'AngularJs',
-          value: 2
+          name: 'Wordpress',
+          value: 1
         },
         {
           name: 'Drupal',
-          value: 2
+          value: 1
         }
       ]
     },
@@ -311,7 +319,7 @@ export const KNOWN_TECH: KnownTech = {
           value: 2
         },
         {
-          name: 'Jenkins',
+          name: 'Jenkins/Cloudbees',
           value: 2
         },
         {
@@ -319,9 +327,13 @@ export const KNOWN_TECH: KnownTech = {
           value: 3
         },
         {
-          name: 'Docker',
+          name: 'Docker + Compose',
           value: 3
-        }
+        },
+        {
+          name: 'SonarQube',
+          value: 3
+        },
       ]
     },
     {
@@ -329,10 +341,14 @@ export const KNOWN_TECH: KnownTech = {
       children: [
         {
           name: 'Amazon AWS',
-          value: 1
+          value: 2
         },
         {
           name: 'Cloudflare',
+          value: 2
+        },
+        {
+          name: 'Terraform',
           value: 2
         }
       ]
@@ -389,7 +405,7 @@ export const KNOWN_TECH: KnownTech = {
       ]
     },
     {
-      name: 'Business software',
+      name: 'Business Software',
       children: [
         {
           name: 'Zoom',
@@ -415,6 +431,19 @@ export const KNOWN_TECH: KnownTech = {
         {
           name: 'Bootstrap',
           value: 3
+        }
+      ]
+    },
+    {
+      name: 'Application Performance Monitoring',
+      children: [
+        {
+          name: 'New Relic',
+          value: 2
+        },
+        {
+          name: 'Dynatrace',
+          value: 2
         }
       ]
     }
