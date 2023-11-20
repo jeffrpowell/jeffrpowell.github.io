@@ -8,6 +8,14 @@
 </div>
 <div class="row mt-4"> 
     <div class="col">
+        <h1 class="title">Articles</h1>
+    </div>
+</div>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 mb-3"> 
+    <article-card *ngFor="let article of articles; index as i" [article]="article"></article-card>
+</div>
+<div class="row mt-4"> 
+    <div class="col">
         <h1 class="title">Videos</h1>
     </div>
 </div>

@@ -4,16 +4,32 @@ export interface PortfolioItem {
     description: string,
 }
 
-export interface PortfolioRepo extends PortfolioItem {
+export interface PortfolioArticle extends PortfolioItem {
     url: string,
-    image: string,
-    techTags: string[];
+    domain: string
 }
 
 export interface PortfolioVideo extends PortfolioItem {
     id: string
     type: "talk"
 }
+
+export interface PortfolioRepo extends PortfolioItem {
+    url: string,
+    image: string,
+    techTags: string[];
+}
+
+
+export const PORTFOLIO_ARTICLES: PortfolioArticle[] = [
+    {
+        title: "Reproducible Local Development with Dev Containers",
+        summary: "Maintaining legacy software is a hefty job, beginning with the chore of getting it up and running locally. This article aims to present an approach to alleviate the challenges associated with onboarding for legacy software maintenance. By capitalizing on a relatively new specification called Development Containers, this solution can reduce the time investment down to an hour or less.",
+        description: "Maintaining legacy software is a hefty job, beginning with the chore of getting it up and running locally. This article aims to present an approach to alleviate the challenges associated with onboarding for legacy software maintenance. By capitalizing on a relatively new specification called Development Containers, this solution can reduce the time investment down to an hour or less.",
+        url: "https://medium.com/@jeffpowell.dev/reproducible-local-development-with-dev-containers-58fa830c6b7f",
+        domain: "Medium.com"
+    }
+];
 
 export const PORTFOLIO_VIDEOS: PortfolioVideo[] = [
     {
