@@ -22,7 +22,11 @@
             <li><strong>Social Styles</strong>: <a href="https://assets.jeffpowell.dev/JeffPowell_SocialStyles.pdf" target="_blank">Driving</a></li>
         </ul>
         <p class="title">Miscellaneous Hobbies</p>
-        <p>{{hobbies | listRandom | sentenceCase}}</p>
+        <span *ngFor="let item of hobbies; index as i">
+            <span *ngIf="item.url; else textOnly"><a *ngIf="item.url" [href]="item.url" target="_blank">{{ item.text | sentenceCase }}</a></span>
+            <ng-template #textOnly>{{ item.text | sentenceCase }}</ng-template>
+            <span *ngIf="i < hobbies.length - 1">, </span>
+        </span>
     </div>
     <div class="col-md d-none d-md-flex"></div>
 </div>
