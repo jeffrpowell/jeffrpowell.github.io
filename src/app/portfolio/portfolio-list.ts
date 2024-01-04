@@ -45,6 +45,13 @@ export const PORTFOLIO_VIDEOS: PortfolioVideo[] = [
         description: "A 30-minute talk teaching engineers how to think like a manager.",
         id: "9ZSD3Ka8-xw",
         type: "talk"
+    },
+    {
+        title: "Video Editing with DaVinci Resolve",
+        summary: "A 30-minute talk demonstrating simple video post-production using DaVinci Resolve.",
+        description: "A 30-minute talk demonstrating simple video post-production using DaVinci Resolve.",
+        id: "57X5vd-y114",
+        type: "talk"
     }
 ];
 
