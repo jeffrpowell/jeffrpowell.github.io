@@ -28,6 +28,13 @@ export const PORTFOLIO_ARTICLES: PortfolioArticle[] = [
         description: "Maintaining legacy software is a hefty job, beginning with the chore of getting it up and running locally. This article aims to present an approach to alleviate the challenges associated with onboarding for legacy software maintenance. By capitalizing on a relatively new specification called Development Containers, this solution can reduce the time investment down to an hour or less.",
         url: "https://medium.com/@jeffpowell.dev/reproducible-local-development-with-dev-containers-58fa830c6b7f",
         domain: "Medium.com"
+    },
+    {
+        title: "Blueprint for a Full-stack Go Web Application",
+        summary: "Learn how to build a full-stack Go web app with modern architecture, front-end tools like Tailwind CSS, and Postgres integration. This guide covers setup, key patterns, and practical tips for clean development.",
+        description: "Learn how to build a full-stack Go web app with modern architecture, front-end tools like Tailwind CSS, and Postgres integration. This guide covers setup, key patterns, and practical tips for clean development.",
+        url: "https://medium.com/@jeffpowell.dev/blueprint-for-a-full-stack-go-web-application-9633d25b9e2e",
+        domain: "Medium.com"
     }
 ];
 
