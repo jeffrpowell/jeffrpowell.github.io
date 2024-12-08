@@ -43,14 +43,14 @@ export const PORTFOLIO_VIDEOS: PortfolioVideo[] = [
         title: "Brain Care",
         summary: "A 30-minute talk on the importance of caring for your mental health.",
         description: "A 30-minute talk on the importance of caring for your mental health.",
-        id: "K2HX3G-6Le4",
+        id: "aev5XvuBE_A",
         type: "talk"
     },
     {
         title: "Team Lead 101",
         summary: "A 30-minute talk teaching engineers how to think like a manager.",
         description: "A 30-minute talk teaching engineers how to think like a manager.",
-        id: "9ZSD3Ka8-xw",
+        id: "O-HBghOpLZU",
         type: "talk"
     },
     {
