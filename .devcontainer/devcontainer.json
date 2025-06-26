@@ -24,7 +24,8 @@
 			"extensions": [
 				"angular.ng-template",
 				"esbenp.prettier-vscode",
-				"pflannery.vscode-versionlens"
+				"pflannery.vscode-versionlens",
+				"bradlc.vscode-tailwindcss"
 			]
 		}
 	}

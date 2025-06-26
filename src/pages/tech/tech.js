@@ -1,0 +1,382 @@
+import * as d3 from 'd3';
+
+// Define the tech data structure
+const KNOWN_TECH = {
+  name: 'Known Tech',
+  children: [
+    {
+      name: 'Language',
+      children: [
+        { name: 'Python', value: 2 },
+        { name: 'Java', value: 3 },
+        { name: 'Clojure', value: 1 },
+        { name: 'HTML5', value: 3 },
+        { name: 'CSS4', value: 3 },
+        { name: 'SCSS', value: 3 },
+        { name: 'LESS', value: 3 },
+        { name: 'Javascript', value: 3 },
+        { name: 'SVG', value: 2 },
+        { name: 'Kotlin', value: 1 },
+        { name: 'TailwindCSS', value: 3 }
+      ]
+    },
+    {
+      name: 'Browser',
+      children: [
+        { name: 'Firefox', value: 3 },
+        { name: 'Edge', value: 2 },
+        { name: 'Chrome', value: 2 }
+      ]
+    },
+    {
+      name: 'Network Protocol',
+      children: [
+        { name: 'HTTP/1', value: 3 },
+        { name: 'HTTP/2', value: 1 },
+        { name: 'HTTP/3', value: 1 },
+        { name: 'AJAX', value: 3 },
+        { name: 'REST', value: 3 },
+        { name: 'Websocket', value: 3 },
+        { name: 'AMQP (RabbitMQ)', value: 2 },
+        { name: 'JSON', value: 3 }
+      ]
+    },
+    {
+      name: 'Logging & Telemetry',
+      children: [
+        { name: 'Kibana', value: 3 },
+        { name: 'OpenSearch', value: 3 },
+        { name: 'Slf4j', value: 3 },
+        { name: 'Graphite', value: 2 },
+        { name: 'Grafana', value: 3 },
+        { name: 'Eclipse Memory Analyzer', value: 2 },
+        { name: 'JVisualVM', value: 2 },
+        { name: 'Fullstory', value: 2 }
+      ]
+    },
+    {
+      name: 'Testing',
+      children: [
+        { name: 'JUnit 5', value: 3 },
+        { name: 'Jasmine', value: 3 },
+        { name: 'Karma', value: 2 },
+        { name: 'Mockito', value: 3 },
+        { name: 'JMeter', value: 2 },
+        { name: 'Cypress', value: 2 }
+      ]
+    },
+    {
+      name: 'Injection',
+      children: [
+        { name: 'HK2', value: 3 },
+        { name: 'Guice', value: 2 },
+        { name: 'Dagger2', value: 1 },
+        { name: 'Angular DI', value: 2 }
+      ]
+    },
+    {
+      name: 'Dependency Management',
+      children: [
+        { name: 'Maven', value: 3 },
+        { name: 'Gradle', value: 1 },
+        { name: 'NPM', value: 3 },
+        { name: 'Yarn', value: 3 },
+        { name: 'Pip', value: 2 }
+      ]
+    },
+    {
+      name: 'Database & Caching',
+      children: [
+        { name: 'MongoDB', value: 1 },
+        { name: 'SQL Server', value: 3 },
+        { name: 'MySQL', value: 2 },
+        { name: 'Memcached', value: 2 },
+        { name: 'Redis', value: 2 },
+        { name: 'Postgres', value: 2 },
+        { name: 'S3', value: 2 },
+        { name: 'R2', value: 2 }
+      ]
+    },
+    {
+      name: 'Web Framework',
+      children: [
+        { name: 'Angular', value: 2 },
+        { name: 'React', value: 1 }
+      ]
+    },
+    {
+      name: 'Operating System',
+      children: [
+        { name: 'Windows', value: 3 },
+        { name: 'Linux', value: 2 },
+        { name: 'Proxmox', value: 2 }
+      ]
+    },
+    {
+      name: 'IDE',
+      children: [
+        { name: 'Netbeans', value: 2 },
+        { name: 'Visual Studio Code', value: 3 },
+        { name: 'IntelliJ', value: 1 },
+        { name: 'Windsurf', value: 3 }
+      ]
+    },
+    {
+      name: 'CI/CD',
+      children: [
+        { name: 'Artifactory', value: 2 },
+        { name: 'Jenkins/Cloudbees', value: 2 },
+        { name: 'YAML', value: 3 },
+        { name: 'Docker + Compose', value: 3 },
+        { name: 'SonarQube', value: 3 },
+        { name: 'Github Actions', value: 2 },
+        { name: 'Gitlab Actions', value: 2 },
+        { name: 'Cloudflare Pipelines', value: 1 }
+      ]
+    },
+    {
+      name: "Public Cloud",
+      children: [
+        { name: 'Amazon AWS', value: 2 },
+        { name: 'Cloudflare', value: 3 },
+        { name: 'Terraform', value: 2 }
+      ]
+    },
+    {
+      name: 'SCM',
+      children: [
+        { name: 'Git', value: 3 },
+        { name: 'SVN', value: 2 }
+      ]
+    },
+    {
+      name: 'Web Server',
+      children: [
+        { name: 'Nginx', value: 3 },
+        { name: 'Apache', value: 1 },
+        { name: 'Tomcat', value: 2 }
+      ]
+    }
+  ]
+};
+
+// Define colors
+const COLORS = {
+  light: '#bef264', // Light green
+  medium: '#84cc16', // Medium green
+  dark: '#4d7c0f',  // Dark green
+  'dark-border': '#3f6212' // Dark green border
+};
+
+// Initialize the bubble chart when the page loads
+window.addEventListener('page:tech:loaded', () => {
+  initBubbleChart();
+  initSearch();
+});
+
+function initBubbleChart() {
+  const width = document.getElementById('bubble-chart-container').offsetWidth - 40;
+  const height = 500;
+  
+  const svg = d3.select('#techBubbleChartSVG')
+    .attr('preserveAspectRatio', 'xMidYMid meet')
+    .attr('viewBox', `0, 0, ${width}, ${height}`)
+    .on('click', zoomToFullView);
+
+  // Create the hierarchical data structure
+  const root = d3.hierarchy(KNOWN_TECH)
+    .sum(d => d.value)
+    .sort((a, b) => b.value - a.value);
+
+  // Create the pack layout
+  const pack = d3.pack()
+    .size([width, height])
+    .padding(3);
+
+  // Apply the layout to the data
+  const rootNode = pack(root);
+  
+  // Constants for zooming
+  let currentNode = rootNode;
+  let currentTransform = [rootNode.x, rootNode.y, rootNode.r * 2 + 1];
+  const valueToZoomFunctions = {};
+  
+  // Create circle elements
+  const circleGroup = svg.append('g');
+  
+  const circles = circleGroup
+    .selectAll('circle')
+    .data(rootNode.descendants().slice(1))
+    .join('circle')
+    .attr('cx', d => d.x)
+    .attr('cy', d => d.y)
+    .attr('r', d => d.r)
+    .attr('fill', d => (d.children ? COLORS.medium : COLORS.light))
+    .attr('pointer-events', d => (!d.children ? 'none' : null))
+    .on('mouseover', function() {
+      d3.select(this).attr('stroke', COLORS['dark-border']);
+    })
+    .on('mouseout', function() {
+      d3.select(this).attr('stroke', null);
+    })
+    .on('click', function(event, d) {
+      event.stopPropagation();
+      d3.select(this).attr('stroke', null);
+      zoomToCircleCenter(d);
+    });
+  
+  // Create leaf node id to zoom function mapping for search
+  rootNode.descendants().filter(d => !d.children).forEach(d => {
+    valueToZoomFunctions[d.data.name.toLowerCase()] = () => zoomToCircleCenter(d.parent);
+  });
+  
+  // Create text labels
+  const labelGroup = svg.append('g')
+    .attr('pointer-events', 'none')
+    .attr('text-anchor', 'middle');
+  
+  const labels = labelGroup
+    .selectAll('text')
+    .data(rootNode.descendants())
+    .join('text')
+    .style('fill-opacity', d => (d.parent === currentNode ? 1 : 0))
+    .style('display', d => (d.parent === currentNode ? 'inline' : 'none'))
+    .style('font-size', d => 1 / (2 * (d.depth || 1)) + 'rem')
+    .attr('x', d => d.x)
+    .attr('y', d => d.y)
+    .html(d => generateLabelSVGText(d.data.name, d.x));
+  
+  // Make category labels bold
+  labels.filter(d => d.parent === rootNode).style('font-weight', 'bold');
+  
+  // Generate multi-line text labels
+  function generateLabelSVGText(rawLabel, x) {
+    if (rawLabel.indexOf(' ') < 0) {
+      return rawLabel;
+    }
+    
+    const words = rawLabel.split(' ');
+    
+    let finalString = `<tspan x="${x}" dy="-0.5em">${words[0]}</tspan>`;
+    
+    for (let i = 1; i < words.length; i++) {
+      finalString += `<tspan x="${x}" dy="1.25em">${words[i]}</tspan>`;
+    }
+    
+    return finalString;
+  }
+  
+  // Zoom to a specific circle
+  function zoomToCircleCenter(d) {
+    currentNode = d;
+    const interpolator = d3.interpolateZoom(
+      currentTransform,
+      [d.x, d.y, d.r * 2 + 1]
+    );
+    
+    runTransition(interpolator);
+  }
+  
+  // Zoom back to full view
+  function zoomToFullView() {
+    currentNode = rootNode;
+    const interpolator = d3.interpolateZoom(
+      currentTransform,
+      [rootNode.x, rootNode.y, rootNode.r * 2 + 1]
+    );
+    
+    runTransition(interpolator);
+  }
+  
+  // Run zoom transition
+  function runTransition(interpolator) {
+    // D3 transition duration
+    const duration = 750;
+    
+    circleGroup
+      .transition()
+      .duration(duration)
+      .attrTween('transform', () => t => transform(currentTransform = interpolator(t)));
+      
+    const labelTransition = labelGroup
+      .transition()
+      .duration(duration)
+      .attrTween('transform', () => t => transform(currentTransform = interpolator(t)));
+      
+    labels
+      .filter(function(d) {
+        return d.parent === currentNode || this.style.display === 'inline';
+      })
+      .transition(labelTransition)
+      .style('fill-opacity', d => (d.parent === currentNode ? 1 : 0))
+      .style('display', d => (d.parent === currentNode ? 'inline' : 'none'));
+  }
+  
+  // Transform function for zoom
+  function transform([x, y, r]) {
+    return `
+      translate(${width / 2}, ${height / 2})
+      scale(${height / r})
+      translate(${-x}, ${-y})
+    `;
+  }
+  
+  // Search functionality
+  function initSearch() {
+    const searchInput = document.getElementById('tech-search');
+    const searchResults = document.getElementById('search-results');
+    
+    // Get all tech items for search
+    const allTechItems = Object.keys(valueToZoomFunctions);
+    
+    // Handle input in search box
+    searchInput.addEventListener('input', function() {
+      const term = this.value.toLowerCase();
+      
+      if (term.length < 2) {
+        searchResults.classList.add('hidden');
+        return;
+      }
+      
+      const filteredItems = allTechItems
+        .filter(item => item.toLowerCase().includes(term))
+        .slice(0, 10);
+      
+      if (filteredItems.length > 0) {
+        searchResults.innerHTML = '';
+        
+        filteredItems.forEach(item => {
+          const resultItem = document.createElement('div');
+          resultItem.className = 'px-4 py-2 hover:bg-gray-100 cursor-pointer';
+          resultItem.textContent = item.charAt(0).toUpperCase() + item.slice(1);
+          
+          resultItem.addEventListener('click', () => {
+            searchInput.value = item;
+            searchResults.classList.add('hidden');
+            valueToZoomFunctions[item.toLowerCase()]();
+          });
+          
+          searchResults.appendChild(resultItem);
+        });
+        
+        searchResults.classList.remove('hidden');
+      } else {
+        searchResults.classList.add('hidden');
+      }
+    });
+    
+    // Hide search results when clicking outside
+    document.addEventListener('click', function(event) {
+      if (event.target !== searchInput && event.target !== searchResults) {
+        searchResults.classList.add('hidden');
+      }
+    });
+    
+    // Show search results when focusing on search input
+    searchInput.addEventListener('focus', function() {
+      if (this.value.length >= 2) {
+        searchResults.classList.remove('hidden');
+      }
+    });
+  }
+}

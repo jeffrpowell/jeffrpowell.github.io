@@ -17,7 +17,29 @@
   <meta name="msapplication-config" content="assets/browserconfig.xml">
   <meta name="theme-color" content="#709f4f">
 </head>
-<body>
-  <app-root></app-root>
+<body class="bg-gray-100">
+  <header class="bg-white shadow">
+    <div class="container mx-auto px-4 py-6">
+      <nav class="flex justify-between items-center">
+        <div class="text-2xl font-bold text-gray-800">Jeff Powell</div>
+        <div class="space-x-6">
+          <a href="#/whois" data-navigo class="hover:text-green-600">About Me</a>
+          <a href="#/tech" data-navigo class="hover:text-green-600">Tech</a>
+          <a href="#/portfolio" data-navigo class="hover:text-green-600">Portfolio</a>
+          <a href="#/tangram" data-navigo class="hover:text-green-600">Tangram</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="container mx-auto px-4 py-8">
+    <!-- Page content will be loaded here -->
+  </main>
+
+  <footer class="bg-white shadow-inner mt-12 py-6">
+    <div class="container mx-auto px-4 text-center text-gray-600">
+      &copy; <span id="current-year"></span> Jeff Powell
+    </div>
+  </footer>
 </body>
 </html>
