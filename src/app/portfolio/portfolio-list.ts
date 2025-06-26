@@ -67,9 +67,17 @@ export const PORTFOLIO_REPOS: PortfolioRepo[] = [
         title: "This portfolio website",
         summary: "This website is published as an open-source project.",
         description: "This website is published as an open-source project.",
-        url: "https://github.com/jeffrpowell/jeffrpowell.github.io/tree/master-src",
+        url: "https://github.com/jeffrpowell/jeffrpowell.github.io",
         image: "repo_website.jpg",
         techTags: ["Angular", "Javascript", "HTML", "SASS", "CSS", "GitHub", "D3.js"]
+    },
+    {
+        title: "Listaway",
+        summary: "Self-hostable list-sharing web application (Amazon Lists alternative)",
+        description: "Self-hostable list-sharing web application (Amazon Lists alternative)",
+        url: "https://github.com/jeffrpowell/listaway",
+        image: "ListawayWordmarkLight.png",
+        techTags: ["Go", "Github Actions", "HTML", "TailwindCSS", "Postgres", "Docker"]
     },
     {
         title: "PDFSplicer",

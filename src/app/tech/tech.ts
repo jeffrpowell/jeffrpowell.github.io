@@ -28,19 +28,15 @@ export const KNOWN_TECH: KnownTech = {
           value: 3
         },
         {
-          name: 'C++',
-          value: 1
-        },
-        {
           name: 'Clojure',
-          value: 2
+          value: 1
         },
         {
           name: 'HTML5',
           value: 3
         },
         {
-          name: 'CSS3',
+          name: 'CSS4',
           value: 3
         },
         {
@@ -62,6 +58,10 @@ export const KNOWN_TECH: KnownTech = {
         {
           name: 'Kotlin',
           value: 1
+        },
+        {
+          name: 'TailwindCSS',
+          value: 3
         }
       ]
     },
@@ -136,7 +136,7 @@ export const KNOWN_TECH: KnownTech = {
         },
         {
           name: 'Graphite',
-          value: 3
+          value: 2
         },
         {
           name: 'Grafana',
@@ -223,14 +223,10 @@ export const KNOWN_TECH: KnownTech = {
         },
         {
           name: 'Yarn',
-          value: 2
+          value: 3
         },
         {
           name: 'Pip',
-          value: 2
-        },
-        {
-          name: 'Leinengen',
           value: 2
         }
       ]
@@ -240,7 +236,7 @@ export const KNOWN_TECH: KnownTech = {
       children: [
         {
           name: 'MongoDB',
-          value: 2
+          value: 1
         },
         {
           name: 'SQL Server',
@@ -259,7 +255,15 @@ export const KNOWN_TECH: KnownTech = {
           value: 2
         },
         {
-          name: 'SpringJDBC',
+          name: 'Postgres',
+          value: 2
+        },
+        {
+          name: 'S3',
+          value: 2
+        },
+        {
+          name: 'R2',
           value: 2
         }
       ]
@@ -272,11 +276,7 @@ export const KNOWN_TECH: KnownTech = {
           value: 2
         },
         {
-          name: 'Wordpress',
-          value: 1
-        },
-        {
-          name: 'Drupal',
+          name: 'React',
           value: 1
         }
       ]
@@ -291,7 +291,11 @@ export const KNOWN_TECH: KnownTech = {
         {
           name: 'Linux',
           value: 2
-        }
+        },
+        {
+          name: 'Proxmox',
+          value: 2
+        },
       ]
     },
     {
@@ -299,7 +303,7 @@ export const KNOWN_TECH: KnownTech = {
       children: [
         {
           name: 'Netbeans',
-          value: 3
+          value: 2
         },
         {
           name: 'Visual Studio Code',
@@ -307,7 +311,11 @@ export const KNOWN_TECH: KnownTech = {
         },
         {
           name: 'IntelliJ',
-          value: 2
+          value: 1
+        },
+        {
+          name: 'Windsurf',
+          value: 3
         }
       ]
     },
@@ -334,6 +342,18 @@ export const KNOWN_TECH: KnownTech = {
           name: 'SonarQube',
           value: 3
         },
+        {
+          name: 'Github Actions',
+          value: 2
+        },
+        {
+          name: 'Gitlab Actions',
+          value: 2
+        },
+        {
+          name: 'Cloudflare Pipelines',
+          value: 1
+        }
       ]
     },
     {
@@ -345,7 +365,7 @@ export const KNOWN_TECH: KnownTech = {
         },
         {
           name: 'Cloudflare',
-          value: 2
+          value: 3
         },
         {
           name: 'Terraform',
@@ -362,7 +382,7 @@ export const KNOWN_TECH: KnownTech = {
         },
         {
           name: 'SVN',
-          value: 3
+          value: 2
         }
       ]
     },
@@ -383,7 +403,7 @@ export const KNOWN_TECH: KnownTech = {
         },
         {
           name: 'Jetty',
-          value: 2
+          value: 1
         }
       ]
     },
@@ -401,6 +421,14 @@ export const KNOWN_TECH: KnownTech = {
         {
           name: 'RSA',
           value: 3
+        },
+        {
+          name: 'OAuth',
+          value: 1
+        },
+        {
+          name: 'SAML',
+          value: 1
         }
       ]
     },
@@ -418,6 +446,10 @@ export const KNOWN_TECH: KnownTech = {
         {
           name: 'Atlassian Suite',
           value: 3
+        },
+        {
+          name: 'GSuite',
+          value: 2
         }
       ]
     },
@@ -426,11 +458,15 @@ export const KNOWN_TECH: KnownTech = {
       children: [
         {
           name: 'Material Design',
-          value: 3
+          value: 2
         },
         {
           name: 'Bootstrap',
           value: 3
+        },
+        {
+          name: 'Figma',
+          value: 1
         }
       ]
     },
