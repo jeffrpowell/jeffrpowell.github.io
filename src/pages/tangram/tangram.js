@@ -1,3 +1,4 @@
+require('../../index')
 // Tangram Calendar page functionality
 import './tangram.css';
 

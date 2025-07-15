@@ -1,4 +1,4 @@
-import './styles/main.css';
+import './main.css';
 import Navigo from 'navigo';
 
 // Initialize the router

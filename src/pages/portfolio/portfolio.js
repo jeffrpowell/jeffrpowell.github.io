@@ -1,3 +1,4 @@
+require('../../index')
 // Portfolio page functionality
 // Import necessary assets
 import './portfolio.css';

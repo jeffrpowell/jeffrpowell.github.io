@@ -1,3 +1,4 @@
+require('../../index')
 // About Me page functionality
 window.addEventListener('page:about-me:loaded', () => {
   // Hobbies data

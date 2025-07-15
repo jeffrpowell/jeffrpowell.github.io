@@ -1,4 +1,3 @@
-/* Global styles for the entire portfolio site */
 @import 'tailwindcss';
 
 @plugin '@tailwindcss/forms';
@@ -21,6 +20,30 @@
   }
 }
 
+/* Base styles */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Custom utility classes */
+.hover-underline:hover {
+  text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Any custom styles can be added here */
+
 /* Custom global styles */
 :root {
   --primary-color: #84cc16; /* Green */
@@ -29,9 +52,9 @@
   --bg-color: #f3f4f6;
   --hdr-gradient: linear-gradient(
     to bottom in oklab,
-    oklch(0.4599 0.148 134.47) -25% -25%, oklch(0.8976 0.0785 134.47) 28% 28%, oklch(0.8976 0.0785 134.47) 59% 59%, oklch(0.4599 0.148 134.47) 100%
+    oklch(0.4599 0.148 134.47) -9% -9%, 7%, oklch(0.8976 0.0785 134.47) 28% 63%, 90%, oklch(0.4599 0.148 134.47) 100%
   );
-  --sdr-gradient: linear-gradient(to bottom, #2f6800 -25% -25%, #c8e9b5 28% 28%, #c8e9b5 59% 59%, #2f6800 100%);
+  --sdr-gradient: linear-gradient(to bottom, #2f6800 -9% -9%, 7%, #c8e9b5 28% 63%, 90%, #2f6800 100%);
 }
 
 body {

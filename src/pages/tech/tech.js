@@ -1,3 +1,4 @@
+require('../../index')
 import * as d3 from 'd3';
 
 // Define the tech data structure
@@ -162,11 +163,72 @@ const KNOWN_TECH = {
 
 // Define colors
 const COLORS = {
-  light: '#bef264', // Light green
-  medium: '#84cc16', // Medium green
-  dark: '#4d7c0f',  // Dark green
+  light: 'oklch(0.8976 0.0785 134.47)', // Light green
+  medium: 'oklch(0.681 0.148 134.47)', // Medium green
   'dark-border': '#3f6212' // Dark green border
 };
+
+// Global object to store zoom functions for search
+const valueToZoomFunctions = {};
+
+// Search functionality
+function initSearch() {
+  const searchInput = document.getElementById('tech-search');
+  const searchResults = document.getElementById('search-results');
+  
+  // Get all tech items for search
+  const allTechItems = Object.keys(valueToZoomFunctions);
+  
+  // Handle input in search box
+  searchInput.addEventListener('input', function() {
+    const term = this.value.toLowerCase();
+    
+    if (term.length < 2) {
+      searchResults.classList.add('hidden');
+      return;
+    }
+    
+    const filteredItems = allTechItems
+      .filter(item => item.toLowerCase().includes(term))
+      .slice(0, 10);
+    
+    if (filteredItems.length > 0) {
+      searchResults.innerHTML = '';
+      
+      filteredItems.forEach(item => {
+        const resultItem = document.createElement('div');
+        resultItem.className = 'px-4 py-2 hover:bg-gray-100 cursor-pointer';
+        resultItem.textContent = item.charAt(0).toUpperCase() + item.slice(1);
+        
+        resultItem.addEventListener('click', () => {
+          searchInput.value = item;
+          searchResults.classList.add('hidden');
+          valueToZoomFunctions[item.toLowerCase()]();
+        });
+        
+        searchResults.appendChild(resultItem);
+      });
+      
+      searchResults.classList.remove('hidden');
+    } else {
+      searchResults.classList.add('hidden');
+    }
+  });
+  
+  // Hide search results when clicking outside
+  document.addEventListener('click', function(event) {
+    if (event.target !== searchInput && event.target !== searchResults) {
+      searchResults.classList.add('hidden');
+    }
+  });
+  
+  // Show search results when focusing on search input
+  searchInput.addEventListener('focus', function() {
+    if (this.value.length >= 2) {
+      searchResults.classList.remove('hidden');
+    }
+  });
+}
 
 // Initialize the bubble chart when the page loads
 window.addEventListener('page:tech:loaded', () => {
@@ -199,7 +261,6 @@ function initBubbleChart() {
   // Constants for zooming
   let currentNode = rootNode;
   let currentTransform = [rootNode.x, rootNode.y, rootNode.r * 2 + 1];
-  const valueToZoomFunctions = {};
   
   // Create circle elements
   const circleGroup = svg.append('g');
@@ -241,7 +302,7 @@ function initBubbleChart() {
     .join('text')
     .style('fill-opacity', d => (d.parent === currentNode ? 1 : 0))
     .style('display', d => (d.parent === currentNode ? 'inline' : 'none'))
-    .style('font-size', d => 1 / (2 * (d.depth || 1)) + 'rem')
+    .style('font-size', d => Math.max(0.35, 1 / (2 * (d.depth || 1))) + 'rem')
     .attr('x', d => d.x)
     .attr('y', d => d.y)
     .html(d => generateLabelSVGText(d.data.name, d.x));
@@ -319,64 +380,5 @@ function initBubbleChart() {
       scale(${height / r})
       translate(${-x}, ${-y})
     `;
-  }
-  
-  // Search functionality
-  function initSearch() {
-    const searchInput = document.getElementById('tech-search');
-    const searchResults = document.getElementById('search-results');
-    
-    // Get all tech items for search
-    const allTechItems = Object.keys(valueToZoomFunctions);
-    
-    // Handle input in search box
-    searchInput.addEventListener('input', function() {
-      const term = this.value.toLowerCase();
-      
-      if (term.length < 2) {
-        searchResults.classList.add('hidden');
-        return;
-      }
-      
-      const filteredItems = allTechItems
-        .filter(item => item.toLowerCase().includes(term))
-        .slice(0, 10);
-      
-      if (filteredItems.length > 0) {
-        searchResults.innerHTML = '';
-        
-        filteredItems.forEach(item => {
-          const resultItem = document.createElement('div');
-          resultItem.className = 'px-4 py-2 hover:bg-gray-100 cursor-pointer';
-          resultItem.textContent = item.charAt(0).toUpperCase() + item.slice(1);
-          
-          resultItem.addEventListener('click', () => {
-            searchInput.value = item;
-            searchResults.classList.add('hidden');
-            valueToZoomFunctions[item.toLowerCase()]();
-          });
-          
-          searchResults.appendChild(resultItem);
-        });
-        
-        searchResults.classList.remove('hidden');
-      } else {
-        searchResults.classList.add('hidden');
-      }
-    });
-    
-    // Hide search results when clicking outside
-    document.addEventListener('click', function(event) {
-      if (event.target !== searchInput && event.target !== searchResults) {
-        searchResults.classList.add('hidden');
-      }
-    });
-    
-    // Show search results when focusing on search input
-    searchInput.addEventListener('focus', function() {
-      if (this.value.length >= 2) {
-        searchResults.classList.remove('hidden');
-      }
-    });
   }
 }
