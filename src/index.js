@@ -60,8 +60,11 @@ router
 document.addEventListener('DOMContentLoaded', () => {
   // Mark current page link as active
   function updateActiveLink() {
+    const currentLocation = router.getCurrentLocation();
+    if (!currentLocation) return;
+    
     document.querySelectorAll('[data-navigo]').forEach(link => {
-      if (link.getAttribute('href') === '#' + router.lastRouteResolved().url) {
+      if (link.getAttribute('href') === '#' + currentLocation.url) {
         link.classList.add('text-green-600', 'font-semibold');
       } else {
         link.classList.remove('text-green-600', 'font-semibold');
