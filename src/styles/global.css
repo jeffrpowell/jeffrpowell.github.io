@@ -1,4 +1,5 @@
 /* Global styles for the entire portfolio site */
+@config "../../tailwind.config.js";
 
 /* Import Tailwind CSS */
 @import 'tailwindcss/base';
