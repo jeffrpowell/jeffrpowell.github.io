@@ -11,6 +11,11 @@
   --primary-dark: #4d7c0f;
   --text-color: #1f2937;
   --bg-color: #f3f4f6;
+  --hdr-gradient: linear-gradient(
+    to bottom in oklab,
+    oklch(0.4599 0.148 134.47) -25% -25%, oklch(0.8976 0.0785 134.47) 28% 28%, oklch(0.8976 0.0785 134.47) 59% 59%, oklch(0.4599 0.148 134.47) 100%
+  );
+  --sdr-gradient: linear-gradient(to bottom, #2f6800 -25% -25%, #c8e9b5 28% 28%, #c8e9b5 59% 59%, #2f6800 100%);
 }
 
 body {
