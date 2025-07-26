@@ -184,3 +184,8 @@ footer {
     padding: 0;
   }
 }
+
+.title {
+    font-size: 1.6rem;
+    font-weight: lighter;
+}
