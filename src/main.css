@@ -26,6 +26,8 @@
   --color-background: #f3f4f6;
   --color-midground: oklch(0.9273 0.0686 134.47);
   --color-primary: oklch(0.4599 0.148 134.47);
+
+  --shadow-md-full: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 /* Custom global styles */
