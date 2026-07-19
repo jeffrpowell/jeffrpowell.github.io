@@ -35,9 +35,12 @@
       "bucket_name": "email-backup",
       "remote": true
     }
-  ]
+  ],
   // Secrets (set via `wrangler secret put` or local `.dev.vars`):
   //   CF_ACCOUNT_ID  — Cloudflare account id that owns the Analytics Engine dataset
   //   CF_API_TOKEN   — API token with "Account Analytics: Read" permission, used to
   //                    query the Analytics Engine SQL API
+  "secrets": {
+    "required": ["CF_ACCOUNT_ID", "CF_API_TOKEN"]
+  }
 }
