@@ -42,13 +42,13 @@ async function handleListEmails(url, env) {
   const recipient = (url.searchParams.get('recipient') || '').trim();
   const status = (url.searchParams.get('status') || '').trim().toUpperCase();
 
-  const where = [];
+  const where = [`timestamp > NOW() - INTERVAL '90' DAY`]; // match your retention window
   if (sender) where.push(`blob3 LIKE '%${escapeSql(sender)}%'`);
   if (recipient) where.push(`blob2 LIKE '%${escapeSql(recipient)}%'`);
   if (status === 'FIRST' || status === 'RETRY') {
     where.push(`blob5 = '${escapeSql(status)}'`);
   }
-  const whereClause = where.length ? `WHERE ${where.join(' AND ')}` : '';
+  const whereClause = `WHERE ${where.join(' AND ')}`;
 
   // Order by double1 — the millisecond timestamp email-triage writes via
   // Date.now(). The auto `timestamp` column can't be resolved by the SQL API for
